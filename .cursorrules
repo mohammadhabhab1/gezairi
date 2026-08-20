@@ -1,0 +1,171 @@
+# Cursor Rules for Gezairi Project
+
+You are an expert in TypeScript, Next.js 15 App Router, Payload CMS 3.0, React 19, shadcn/ui, Tailwind CSS, and Playwright testing.
+
+## Code Style and Structure
+
+- Write concise, technical TypeScript code with accurate examples
+- Use functional and declarative programming patterns; avoid classes
+- Prefer iteration and modularization over code duplication
+- Use descriptive variable names with auxiliary verbs (e.g., isLoading, hasError)
+- Structure files: exported component, subcomponents, helpers, static content, types
+- Use lowercase with dashes for directories (e.g., components/auth-wizard)
+- Favor named exports for components
+
+## TypeScript Usage
+
+- Use TypeScript for all code; prefer interfaces over types
+- Avoid enums; use const objects with 'as const' assertion
+- Use functional components with TypeScript interfaces
+- Enable strict mode in tsconfig.json
+- Use absolute imports with @/ prefix
+- Define proper return types for all functions
+
+## Next.js 15 Specifics
+
+- Use App Router with file-based routing
+- Leverage Server Components by default
+- Use 'use client' directive only when necessary
+- Implement proper error boundaries and loading states
+- Use next/image for optimized images
+- Implement metadata API for SEO
+
+## React 19 and Server Components
+
+- Default to Server Components for data fetching
+- Use Server Actions for mutations
+- Minimize 'use client' usage
+- Wrap client components in Suspense with fallback
+- Use dynamic imports for code splitting
+- Optimize re-renders with useCallback and useMemo
+
+## Payload CMS 3.0
+
+- Define collections in src/collections/
+- Use proper access control functions
+- Implement field validations
+- Use hooks for side effects
+- Generate types with payload generate:types
+- Use getPayloadHMR for server-side data fetching
+
+## shadcn/ui Components
+
+- Import from @/components/ui/
+- Use the cn() utility for className merging
+- Extend components with proper TypeScript props
+- Follow the existing component patterns
+- Use Radix UI primitives when needed
+
+## Styling with Tailwind CSS
+
+- Use Tailwind CSS utility classes
+- Follow mobile-first responsive design
+- Use CSS variables for theming (--primary, --secondary, etc.)
+- Avoid arbitrary values when possible
+- Use the container class for layout
+
+## Email Templates (Resend)
+
+- Create templates in src/email/templates/
+- Use inline styles for email compatibility
+- Export templates as React components
+- Test emails with Resend preview
+
+## Testing with Playwright
+
+- Write e2e tests in e2e/ directory
+- Use .spec.ts file extension
+- Follow AAA pattern (Arrange, Act, Assert)
+- Use descriptive test names
+- Implement page objects for complex flows
+- Test accessibility with built-in assertions
+
+## File Naming Conventions
+
+- React Components: PascalCase (UserProfile.tsx)
+- Utilities/Hooks: camelCase (useAuth.ts)
+- Collections: PascalCase (Users.ts)
+- E2E Tests: kebab-case (user-auth.spec.ts)
+- Config files: kebab-case (tailwind.config.ts)
+
+## Git Commit Messages
+
+Use conventional commits:
+- feat: new feature
+- fix: bug fix
+- docs: documentation
+- style: formatting
+- refactor: code restructuring
+- test: adding tests
+- chore: maintenance
+
+## Error Handling
+
+- Use try-catch blocks for async operations
+- Implement error boundaries for React components
+- Return proper error responses from API routes
+- Log errors appropriately
+- Show user-friendly error messages
+
+## Performance Optimization
+
+- Use Server Components for data fetching
+- Implement proper caching strategies
+- Lazy load non-critical components
+- Optimize images with next/image
+- Use connection pooling for database
+
+## Security Best Practices
+
+- Never commit secrets or API keys
+- Validate all user inputs with Zod
+- Implement proper access controls
+- Sanitize user-generated content
+- Use HTTPS in production
+- Rate limit public API endpoints
+
+## Project-Specific Patterns
+
+### Data Fetching
+```typescript
+import { getPayloadHMR } from '@payloadcms/next/utilities'
+import config from '@payload-config'
+
+const payload = await getPayloadHMR({ config })
+const data = await payload.find({ collection: 'posts' })
+```
+
+### API Routes
+```typescript
+import { NextResponse } from 'next/server'
+
+export async function GET() {
+  return NextResponse.json({ data })
+}
+```
+
+### Client Components
+```typescript
+'use client'
+import { useState } from 'react'
+import { Button } from '@/components/ui/button'
+```
+
+### Styling
+```typescript
+import { cn } from '@/lib/utils'
+
+className={cn('base-classes', condition && 'conditional-class')}
+```
+
+## Do NOT
+
+- Use var for variable declarations
+- Use any type without explicit reason
+- Commit .env files or secrets
+- Use inline styles (except email templates)
+- Skip TypeScript types
+- Ignore accessibility
+- Write tests without assertions
+- Use synchronous database operations
+- Mutate state directly

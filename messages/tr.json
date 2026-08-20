@@ -1,0 +1,91 @@
+{
+  "nav": {
+    "home": "Ana Sayfa",
+    "whoWeAre": "Hakkımızda",
+    "regionalOffices": "Bölge Ofisleri",
+    "services": "Hizmetler",
+    "contactUs": "İletişim",
+    "kvkk": "KVKK"
+  },
+  "footer": {
+    "tagline": "1945'ten bu yana küresel lojistik çözümler sunuyoruz.",
+    "officeTitle": "Genel Merkez",
+    "navLinks": {
+      "home": "Ana Sayfa",
+      "whoWeAre": "Hakkımızda",
+      "regionalOffices": "Bölge Ofisleri",
+      "services": "Hizmetler",
+      "kvkk": "KVKK"
+    },
+    "legalLinks": {
+      "legal": "Yasal",
+      "terms": "Kullanım Şartları",
+      "privacy": "Gizlilik Politikası"
+    },
+    "copyright": "Telif Hakkı 2025 © GEZAIRI",
+    "scrollToTop": "Yukarı kaydır"
+  },
+  "home": {
+    "heroAlt": "Taşımacılık ve lojistikte lider",
+    "heroEyebrow": "1945'ten Beri",
+    "heroLine1": "TAŞIMACILIK VE",
+    "heroLine2": "LOJİSTİKTE",
+    "heroLine3": "LİDER",
+    "heroSubtitle": "Dünyayı havadan, denizden ve karadan taşıyan seksen yıllık tecrübe — müşterilerimizi her kıtadaki fırsatlarla buluşturuyoruz.",
+    "heroStat1Value": "4.7K+",
+    "heroStat1Label": "Başarılı Sevkiyat",
+    "heroStat2Value": "228+",
+    "heroStat2Label": "Toplam Müşteri",
+    "heroStat3Value": "1945",
+    "heroStat3Label": "Kuruluş",
+    "heroStat4Value": "9",
+    "heroStat4Label": "Ülke",
+    "heroStat5Value": "600+",
+    "heroStat5Label": "Çalışan",
+    "eightyYearsAlt": "80 Yıllık Mükemmellik",
+    "learnMore": "Daha Fazla",
+    "ourValues": "DEĞERLERİMİZ",
+    "ourServices": "HİZMETLERİMİZ",
+    "servicesIntro": "GEZAIRI dünya çapında uçtan uca, özelleştirilmiş geniş kapsamlı lojistik çözümler sunmaktadır."
+  },
+  "whoWeAre": {
+    "title": "Hakkımızda",
+    "ourValues": "DEĞERLERİMİZ",
+    "timeline": "GEZAIRI ZAMAN ÇİZELGESİ",
+    "differentiators": "Bizi Diğerlerinden Ayıran Ne?",
+    "visionTitle": "Kurucunun Vizyonu ve Liderlik Yolculuğu",
+    "date": "Tarih",
+    "description": "Açıklama"
+  },
+  "services": {
+    "title": "Hizmetler",
+    "intro": "GEZAIRI dünya çapında uçtan uca, özelleştirilmiş geniş kapsamlı lojistik çözümler sunmaktadır."
+  },
+  "events": {
+    "title": "Etkinlikler"
+  },
+  "legal": {
+    "title": "Yasal"
+  },
+  "terms": {
+    "title": "Kullanım Şartları"
+  },
+  "privacy": {
+    "title": "Gizlilik Politikası"
+  },
+  "regionalOffices": {
+    "title": "Bölge Ofisleri",
+    "globalReach": "Küresel Erişim Yerel Uzmanlık"
+  },
+  "kvkk": {
+    "title": "KVKK Aydınlatma Metni"
+  },
+  "common": {
+    "skipToContent": "İçeriğe atla"
+  },
+  "language": {
+    "en": "EN",
+    "tr": "TR",
+    "ar": "AR"
+  }
+}

@@ -1,0 +1,2 @@
+export { WelcomeEmail } from './templates/welcome'
+export { PasswordResetEmail } from './templates/password-reset'

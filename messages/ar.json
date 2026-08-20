@@ -1,0 +1,91 @@
+{
+  "nav": {
+    "home": "الرئيسية",
+    "whoWeAre": "من نحن",
+    "regionalOffices": "المكاتب الإقليمية",
+    "services": "الخدمات",
+    "contactUs": "اتصل بنا",
+    "kvkk": "KVKK"
+  },
+  "footer": {
+    "tagline": "نقدم حلول لوجستية عالمية منذ عام 1945.",
+    "officeTitle": "المقر الرئيسي",
+    "navLinks": {
+      "home": "الرئيسية",
+      "whoWeAre": "من نحن",
+      "regionalOffices": "المكاتب الإقليمية",
+      "services": "الخدمات",
+      "kvkk": "KVKK"
+    },
+    "legalLinks": {
+      "legal": "قانوني",
+      "terms": "شروط الاستخدام",
+      "privacy": "سياسة الخصوصية"
+    },
+    "copyright": "حقوق النشر 2025 © GEZAIRI",
+    "scrollToTop": "العودة إلى الأعلى"
+  },
+  "home": {
+    "heroAlt": "الريادة في النقل والخدمات اللوجستية",
+    "heroEyebrow": "منذ عام 1945",
+    "heroLine1": "الريادة في",
+    "heroLine2": "النقل والخدمات",
+    "heroLine3": "اللوجستية",
+    "heroSubtitle": "ثمانية عقود من تحريك العالم جواً وبحراً وبراً — نربط عملاءنا بالفرص في كل قارة.",
+    "heroStat1Value": "+4.7K",
+    "heroStat1Label": "شحنات ناجحة",
+    "heroStat2Value": "+228",
+    "heroStat2Label": "إجمالي العملاء",
+    "heroStat3Value": "1945",
+    "heroStat3Label": "تأسست عام",
+    "heroStat4Value": "9",
+    "heroStat4Label": "دول",
+    "heroStat5Value": "+600",
+    "heroStat5Label": "موظف",
+    "eightyYearsAlt": "80 عاماً من التميز",
+    "learnMore": "اقرأ المزيد",
+    "ourValues": "قيمنا",
+    "ourServices": "خدماتنا",
+    "servicesIntro": "تقدم GEZAIRI مجموعة واسعة من الحلول اللوجستية المخصصة والشاملة حول العالم."
+  },
+  "whoWeAre": {
+    "title": "من نحن",
+    "ourValues": "قيمنا",
+    "timeline": "الجدول الزمني لـ GEZAIRI",
+    "differentiators": "ما الذي يميزنا عن الآخرين؟",
+    "visionTitle": "رؤية المؤسس ومسيرة القيادة",
+    "date": "التاريخ",
+    "description": "الوصف"
+  },
+  "services": {
+    "title": "الخدمات",
+    "intro": "تقدم GEZAIRI مجموعة واسعة من الحلول اللوجستية المخصصة والشاملة حول العالم."
+  },
+  "events": {
+    "title": "الفعاليات"
+  },
+  "legal": {
+    "title": "قانوني"
+  },
+  "terms": {
+    "title": "شروط الاستخدام"
+  },
+  "privacy": {
+    "title": "سياسة الخصوصية"
+  },
+  "regionalOffices": {
+    "title": "المكاتب الإقليمية",
+    "globalReach": "انتشار عالمي وخبرة محلية"
+  },
+  "kvkk": {
+    "title": "نص توضيح KVKK"
+  },
+  "common": {
+    "skipToContent": "انتقل إلى المحتوى"
+  },
+  "language": {
+    "en": "EN",
+    "tr": "TR",
+    "ar": "AR"
+  }
+}

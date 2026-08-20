@@ -1,0 +1,13 @@
+node_modules
+.pnpm-store
+.next
+.git
+.gitignore
+.env
+.env.*
+!.env.example
+*.log
+.DS_Store
+coverage
+tmp
+e2e

@@ -1,0 +1,63 @@
+services:
+  app:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    container_name: gezairi-app
+    restart: unless-stopped
+    expose:
+      - "3000"
+    environment:
+      - PAYLOAD_SECRET=${PAYLOAD_SECRET}
+      - DATABASE_URI=${DATABASE_URI}
+      - SERVER_URL=${SERVER_URL}
+      - NEXT_PUBLIC_SERVER_URL=${NEXT_PUBLIC_SERVER_URL}
+      - NODE_ENV=production
+      - RESEND_API_KEY=${RESEND_API_KEY:-}
+      - EMAIL_FROM=${EMAIL_FROM:-}
+      - S3_BUCKET=${S3_BUCKET:-}
+      - S3_ACCESS_KEY_ID=${S3_ACCESS_KEY_ID:-}
+      - S3_SECRET_ACCESS_KEY=${S3_SECRET_ACCESS_KEY:-}
+      - S3_REGION=${S3_REGION:-}
+      - PAYLOAD_DB_PUSH=${PAYLOAD_DB_PUSH:-true}
+    networks:
+      - gezairi
+    healthcheck:
+      test: ["CMD", "node", "-e", "fetch('http://localhost:3000').then(r => { if (!r.ok) throw new Error(); })"]
+      interval: 30s
+      timeout: 10s
+      retries: 3
+      start_period: 40s
+    volumes:
+      - payload_data:/app/.payload
+      - media:/app/public/media
+
+  # postgres:
+  #   image: postgres:16-alpine
+  #   container_name: gezairi-postgres
+  #   restart: unless-stopped
+  #   environment:
+  #     POSTGRES_USER: postgres
+  #     POSTGRES_PASSWORD: ${POSTGRES_PASSWORD:-postgres}
+  #     POSTGRES_DB: ${POSTGRES_DB:-gezairi}
+  #   networks:
+  #     - gezairi
+  #   volumes:
+  #     - postgres_data:/var/lib/postgresql/data
+  #   healthcheck:
+  #     test: ["CMD-SHELL", "pg_isready -U postgres -d ${POSTGRES_DB:-gezairi}"]
+  #     interval: 10s
+  #     timeout: 5s
+  #     retries: 5
+
+networks:
+  gezairi:
+    driver: bridge
+
+volumes:
+  payload_data:
+    driver: local
+  media:
+    driver: local
+  # postgres_data:
+  #   driver: local

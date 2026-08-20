@@ -1,0 +1,91 @@
+{
+  "nav": {
+    "home": "Home",
+    "whoWeAre": "Who We Are",
+    "regionalOffices": "Regional Offices",
+    "services": "Services",
+    "contactUs": "Contact Us",
+    "kvkk": "KVKK"
+  },
+  "footer": {
+    "tagline": "Serving global logistics solutions since 1945.",
+    "officeTitle": "Headquarter Office",
+    "navLinks": {
+      "home": "Home",
+      "whoWeAre": "Who We Are",
+      "regionalOffices": "Regional Offices",
+      "services": "Services",
+      "kvkk": "KVKK"
+    },
+    "legalLinks": {
+      "legal": "Legal",
+      "terms": "Terms of Use",
+      "privacy": "Privacy Policy"
+    },
+    "copyright": "Copyright 2025 © GEZAIRI",
+    "scrollToTop": "Scroll to top"
+  },
+  "home": {
+    "heroAlt": "Leading the transport and logistics",
+    "heroEyebrow": "Since 1945",
+    "heroLine1": "LEADING THE",
+    "heroLine2": "TRANSPORT AND",
+    "heroLine3": "LOGISTICS",
+    "heroSubtitle": "Eight decades of moving the world by air, sea, and land — connecting customers to opportunities across every continent.",
+    "heroStat1Value": "4.7K+",
+    "heroStat1Label": "Successful Shipments",
+    "heroStat2Value": "228+",
+    "heroStat2Label": "Total Customers",
+    "heroStat3Value": "1945",
+    "heroStat3Label": "Established in",
+    "heroStat4Value": "9",
+    "heroStat4Label": "Countries",
+    "heroStat5Value": "600+",
+    "heroStat5Label": "Employees",
+    "eightyYearsAlt": "80 Years of Excellence",
+    "learnMore": "Learn More",
+    "ourValues": "Our Values",
+    "ourServices": "Our Services",
+    "servicesIntro": "GEZAIRI offers a broad range of end-to-end, customized logistics solutions worldwide."
+  },
+  "whoWeAre": {
+    "title": "Who We Are",
+    "ourValues": "Our Values",
+    "timeline": "Gezairi Timeline",
+    "differentiators": "What Differentiates Us From Others?",
+    "visionTitle": "The Founder's Vision and Leadership Journey",
+    "date": "Date",
+    "description": "Description"
+  },
+  "services": {
+    "title": "Services",
+    "intro": "GEZAIRI offers a broad range of end-to-end, customized logistics solutions worldwide."
+  },
+  "events": {
+    "title": "Events"
+  },
+  "legal": {
+    "title": "Legal"
+  },
+  "terms": {
+    "title": "Terms of Use"
+  },
+  "privacy": {
+    "title": "Privacy Policy"
+  },
+  "regionalOffices": {
+    "title": "Regional Offices",
+    "globalReach": "Global Reach Local Expertise"
+  },
+  "kvkk": {
+    "title": "KVKK Disclosure"
+  },
+  "common": {
+    "skipToContent": "Skip to content"
+  },
+  "language": {
+    "en": "EN",
+    "tr": "TR",
+    "ar": "AR"
+  }
+}
