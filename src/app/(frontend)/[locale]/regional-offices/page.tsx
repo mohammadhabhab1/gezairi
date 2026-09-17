@@ -105,19 +105,24 @@ function MapPin({ left, top, label }: MapPinProps) {
       className="absolute -translate-x-1/2 z-10 group bg-transparent border-0 p-0"
       style={{ left, top }}
       aria-label={label}
-      title={label}
     >
-      <div className="w-[10px] h-[14px] sm:w-[14px] sm:h-[19px] md:w-[20px] md:h-[27px] lg:w-[25px] lg:h-[33px] rotate-180 relative">
-        <Image
-          src="/images/gezairi/icons/location-marker-red.svg"
-          alt=""
-          aria-hidden="true"
-          fill
-          className="object-contain"
-          unoptimized
-        />
+      {/* Shifted up by its own height so the pin's tip (not the icon box's
+          top-left corner) lands exactly on the target coordinate above —
+          the icon is rotated 180deg, which flips its content but not its
+          box, so without this the tip would render below the target. */}
+      <div className="-translate-y-full">
+        <div className="w-[10px] h-[14px] sm:w-[14px] sm:h-[19px] md:w-[20px] md:h-[27px] lg:w-[25px] lg:h-[33px] rotate-180 relative">
+          <Image
+            src="/images/gezairi/icons/location-marker-red.svg"
+            alt=""
+            aria-hidden="true"
+            fill
+            className="object-contain"
+            unoptimized
+          />
+        </div>
       </div>
-      <span className="pointer-events-none absolute left-1/2 -translate-x-1/2 -top-6 md:-top-7 px-2 py-0.5 rounded bg-gezairi-blue text-white text-[10px] md:text-[12px] font-medium whitespace-nowrap opacity-0 group-hover:opacity-100 group-focus:opacity-100 group-active:opacity-100 transition-opacity">
+      <span className="pointer-events-none absolute left-1/2 -translate-x-1/2 -top-6 md:-top-8 lg:-top-10 px-2 py-0.5 rounded bg-gezairi-blue text-white text-[10px] md:text-[12px] font-medium whitespace-nowrap opacity-0 group-hover:opacity-100 group-focus:opacity-100 group-active:opacity-100 transition-opacity">
         {label}
       </span>
     </button>
