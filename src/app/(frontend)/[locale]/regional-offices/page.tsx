@@ -75,14 +75,17 @@ interface OfficeCardData {
 // Individual pin coordinates — adjust each one independently.
 // `left` and `top` are percentages of the map container (2348x1973 aspect,
 // matching the source map image at public/images/gezairi/map.png).
-const turkeyPin = { left: '5.96%', top: '14.70%' }
-const cyprusPin = { left: '21.29%', top: '34.97%' }
-const lebanonPin = { left: '28.96%', top: '40.04%' }
+// Each coordinate is verified to land on an opaque (land) pixel of that
+// image with real clearance from the coastline — not just barely on the
+// border — by sampling the source PNG's alpha channel directly.
+const turkeyPin = { left: '6.05%', top: '15.81%' }
+const cyprusPin = { left: '21.25%', top: '36.49%' }
+const lebanonPin = { left: '31.43%', top: '40.75%' }
 const jordanPin = { left: '35.35%', top: '51.19%' }
-const georgiaPin = { left: '38.33%', top: '2.79%' }
+const georgiaPin = { left: '40.72%', top: '1.57%' }
 const iraqPin = { left: '52.39%', top: '39.53%' }
-const saudiArabiaPin = { left: '36.63%', top: '69.94%' }
-const uaePin = { left: '90.72%', top: '71.97%' }
+const saudiArabiaPin = { left: '39.61%', top: '69.54%' }
+const uaePin = { left: '90.55%', top: '73.29%' }
 
 interface MapPinProps {
   left: string
