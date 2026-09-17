@@ -73,15 +73,16 @@ interface OfficeCardData {
 }
 
 // Individual pin coordinates — adjust each one independently.
-// `left` and `top` are percentages of the map container (986x570 aspect).
-const turkeyPin = { left: '48%', top: '18%' }
-const cyprusPin = { left: '32%', top: '31%' }
-const lebanonPin = { left: '38%', top: '32%' }
-const jordanPin = { left: '40%', top: '42%' }
-const georgiaPin = { left: '50%', top: '5%' }
-const iraqPin = { left: '55%', top: '33%' }
-const saudiArabiaPin = { left: '48%', top: '63%' }
-const uaePin = { left: '76%', top: '67%' }
+// `left` and `top` are percentages of the map container (2348x1973 aspect,
+// matching the source map image at public/images/gezairi/map.png).
+const turkeyPin = { left: '5.96%', top: '14.70%' }
+const cyprusPin = { left: '21.29%', top: '34.97%' }
+const lebanonPin = { left: '28.96%', top: '40.04%' }
+const jordanPin = { left: '35.35%', top: '51.19%' }
+const georgiaPin = { left: '38.33%', top: '2.79%' }
+const iraqPin = { left: '52.39%', top: '39.53%' }
+const saudiArabiaPin = { left: '36.63%', top: '69.94%' }
+const uaePin = { left: '90.72%', top: '71.97%' }
 
 interface MapPinProps {
   left: string
@@ -201,22 +202,25 @@ export default async function RegionalOfficesPage({
 
         <div className="flex flex-col gap-[40px] items-center w-full">
           {/* World Map Image with Location Pins */}
-          <div className="relative w-full max-w-[986px] mx-auto aspect-[986/570]">
-            <Image
-              src="/images/gezairi/map.png"
-              alt="Gezairi global offices map"
-              fill
-              className="object-contain"
-              priority
-            />
-            <MapPin {...turkeyPin} label="Turkey" />
-            <MapPin {...cyprusPin} label="Cyprus" />
-            <MapPin {...lebanonPin} label="Lebanon" />
-            <MapPin {...jordanPin} label="Jordan" />
-            <MapPin {...georgiaPin} label="Georgia" />
-            <MapPin {...iraqPin} label="Iraq" />
-            <MapPin {...saudiArabiaPin} label="Saudi Arabia" />
-            <MapPin {...uaePin} label="UAE" />
+          <div className="w-full max-w-[900px] mx-auto rounded-[20px] bg-white shadow-[0_20px_60px_-25px_rgba(31,43,123,0.35)] ring-1 ring-gezairi-blue/10 p-4 sm:p-8 md:p-10">
+            <div className="relative w-full aspect-[2348/1973]">
+              <Image
+                src="/images/gezairi/map.png"
+                alt="Gezairi regional offices map covering Turkey, Georgia, Cyprus, Lebanon, Jordan, Iraq, Saudi Arabia and the UAE"
+                fill
+                sizes="(max-width: 900px) 100vw, 900px"
+                className="object-contain"
+                priority
+              />
+              <MapPin {...turkeyPin} label="Turkey" />
+              <MapPin {...cyprusPin} label="Cyprus" />
+              <MapPin {...lebanonPin} label="Lebanon" />
+              <MapPin {...jordanPin} label="Jordan" />
+              <MapPin {...georgiaPin} label="Georgia" />
+              <MapPin {...iraqPin} label="Iraq" />
+              <MapPin {...saudiArabiaPin} label="Saudi Arabia" />
+              <MapPin {...uaePin} label="UAE" />
+            </div>
           </div>
 
           {/* Office Cards Grid */}
