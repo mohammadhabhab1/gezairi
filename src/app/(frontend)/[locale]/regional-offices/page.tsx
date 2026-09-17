@@ -62,6 +62,13 @@ const fallbackOffices = [
     phone2: '+964 1 7181344',
     email: 'iraq@gezairi.com',
   },
+  {
+    country: 'Syria',
+    cities: 'Details coming soon',
+    phone1: '',
+    phone2: '',
+    email: '',
+  },
 ]
 
 interface OfficeCardData {
@@ -83,6 +90,7 @@ const georgiaPin = { left: '38.33%', top: '2.79%' }
 const iraqPin = { left: '52.39%', top: '39.53%' }
 const saudiArabiaPin = { left: '36.63%', top: '69.94%' }
 const uaePin = { left: '90.72%', top: '71.97%' }
+const syriaPin = { left: '37.05%', top: '34.47%' }
 
 interface MapPinProps {
   left: string
@@ -149,9 +157,15 @@ function OfficeCard({ office }: { office: OfficeCardData }) {
           />
         </div>
         <div className="text-[14px] md:text-[20px] font-light text-gezairi-dark leading-[18px] md:leading-[24px] w-[217px]">
-          <p><a href={`tel:${office.phone1.replace(/\s/g, '')}`} className="hover:underline">{office.phone1}</a></p>
-          <p><a href={`tel:${office.phone2.replace(/\s/g, '')}`} className="hover:underline">{office.phone2}</a></p>
-          <p><a href={`mailto:${office.email}`} className="hover:underline">{office.email}</a></p>
+          {office.phone1 && (
+            <p><a href={`tel:${office.phone1.replace(/\s/g, '')}`} className="hover:underline">{office.phone1}</a></p>
+          )}
+          {office.phone2 && (
+            <p><a href={`tel:${office.phone2.replace(/\s/g, '')}`} className="hover:underline">{office.phone2}</a></p>
+          )}
+          {office.email && (
+            <p><a href={`mailto:${office.email}`} className="hover:underline">{office.email}</a></p>
+          )}
         </div>
       </div>
     </div>
@@ -206,7 +220,7 @@ export default async function RegionalOfficesPage({
             <div className="relative w-full aspect-[2348/1973]">
               <Image
                 src="/images/gezairi/map.png"
-                alt="Gezairi regional offices map covering Turkey, Georgia, Cyprus, Lebanon, Jordan, Iraq, Saudi Arabia and the UAE"
+                alt="Gezairi regional offices map covering Turkey, Georgia, Cyprus, Lebanon, Syria, Jordan, Iraq, Saudi Arabia and the UAE"
                 fill
                 sizes="(max-width: 900px) 100vw, 900px"
                 className="object-contain"
@@ -220,6 +234,7 @@ export default async function RegionalOfficesPage({
               <MapPin {...iraqPin} label="Iraq" />
               <MapPin {...saudiArabiaPin} label="Saudi Arabia" />
               <MapPin {...uaePin} label="UAE" />
+              <MapPin {...syriaPin} label="Syria" />
             </div>
           </div>
 
