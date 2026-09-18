@@ -155,28 +155,58 @@ function OfficeCard({ office }: { office: OfficeCardData }) {
           {office.cities}
         </p>
       </div>
-      <div className="flex gap-[10px] items-start px-[5px]">
-        <div className="w-[18px] h-[55px] md:w-[23px] md:h-[72px] relative shrink-0">
-          <Image
-            src="/images/gezairi/icons/contact-icons-blue.svg"
-            alt=""
-            aria-hidden="true"
-            fill
-            className="object-contain"
-            unoptimized
-          />
-        </div>
-        <div className="text-[14px] md:text-[20px] font-light text-gezairi-dark leading-[18px] md:leading-[24px] w-[217px]">
-          {office.phone1 && (
-            <p><a href={`tel:${office.phone1.replace(/\s/g, '')}`} className="hover:underline">{office.phone1}</a></p>
-          )}
-          {office.phone2 && (
-            <p><a href={`tel:${office.phone2.replace(/\s/g, '')}`} className="hover:underline">{office.phone2}</a></p>
-          )}
-          {office.email && (
-            <p><a href={`mailto:${office.email}`} className="hover:underline">{office.email}</a></p>
-          )}
-        </div>
+      <div className="flex flex-col gap-[8px] items-start px-[5px] w-full">
+        {office.phone1 && (
+          <div className="flex gap-[10px] items-center">
+            <div className="w-[18px] h-[18px] md:w-[23px] md:h-[23px] relative shrink-0">
+              <Image
+                src="/images/gezairi/icons/phone-icon-blue.svg"
+                alt=""
+                aria-hidden="true"
+                fill
+                className="object-contain"
+                unoptimized
+              />
+            </div>
+            <a href={`tel:${office.phone1.replace(/\s/g, '')}`} className="text-[14px] md:text-[20px] font-light text-gezairi-dark hover:underline">
+              {office.phone1}
+            </a>
+          </div>
+        )}
+        {office.phone2 && (
+          <div className="flex gap-[10px] items-center">
+            <div className="w-[18px] h-[18px] md:w-[23px] md:h-[23px] relative shrink-0">
+              <Image
+                src="/images/gezairi/icons/fax-icon-blue.svg"
+                alt=""
+                aria-hidden="true"
+                fill
+                className="object-contain"
+                unoptimized
+              />
+            </div>
+            <a href={`tel:${office.phone2.replace(/\s/g, '')}`} className="text-[14px] md:text-[20px] font-light text-gezairi-dark hover:underline">
+              {office.phone2}
+            </a>
+          </div>
+        )}
+        {office.email && (
+          <div className="flex gap-[10px] items-center">
+            <div className="w-[18px] h-[18px] md:w-[23px] md:h-[23px] relative shrink-0">
+              <Image
+                src="/images/gezairi/icons/mail-icon-blue.svg"
+                alt=""
+                aria-hidden="true"
+                fill
+                className="object-contain"
+                unoptimized
+              />
+            </div>
+            <a href={`mailto:${office.email}`} className="text-[14px] md:text-[20px] font-light text-gezairi-dark hover:underline">
+              {office.email}
+            </a>
+          </div>
+        )}
       </div>
     </div>
   )
