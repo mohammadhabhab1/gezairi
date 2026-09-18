@@ -64,10 +64,10 @@ const fallbackOffices = [
   },
   {
     country: 'Syria',
-    cities: 'Details coming soon',
-    phone1: '',
+    cities: 'Damascus, Latakia, Tartous & Aleppo',
+    phone1: '+963 13315301',
     phone2: '',
-    email: '',
+    email: 'syria@gezairi.com',
   },
 ]
 
