@@ -124,8 +124,7 @@ const fallbackVision = {
 }
 
 // Brand logo shown alongside each timeline entry, matching the era it
-// falls in. Dates are placeholders (see titles), so each entry uses the
-// logo that was in use at that point in Gezairi's rebrand history.
+// falls in, per Gezairi's rebrand history.
 const logo1945 = '/images/gezairi/history/gezairi-logo-1945.png'
 const logo1952to1980 = '/images/gezairi/history/gezairi-logo-1952-1980.png'
 const logo1989 = '/images/gezairi/history/gezairi-logo-1989.png'
@@ -135,7 +134,7 @@ const logo2025 = '/images/gezairi/history/gezairi-logo-2025.png'
 const fallbackTimelineEvents = [
   {
     title: 'Lebanon, 1945',
-    date: 'January 31',
+    date: '1945',
     status: 'Introduced',
     description:
       'Abdul-Salam Bou-Azza El-Gezairi took the first step and opened a small customs clearing office in his hometown of Beirut, Lebanon.',
@@ -143,17 +142,17 @@ const fallbackTimelineEvents = [
     image: logo1945,
   },
   {
-    title: 'Jordan, 1950',
-    date: 'February 2',
+    title: 'Syria, 1952',
+    date: '1952',
     status: 'Expanded',
     description:
-      'Gezairi expanded operations to Jordan, establishing a strong foothold in the Levant region.',
+      "Gezairi expanded into Syria, reinforcing the company's position as a leading regional freight forwarder.",
     position: 'right' as const,
     image: logo1952to1980,
   },
   {
-    title: 'Iraq, 1950',
-    date: 'January 31',
+    title: 'Iraq, 1960',
+    date: '1960',
     status: 'Expanded',
     description:
       'Further expansion into Iraq, growing the network of offices and logistics capabilities across the Middle East.',
@@ -161,65 +160,65 @@ const fallbackTimelineEvents = [
     image: logo1952to1980,
   },
   {
-    title: 'Syria, 1950',
-    date: 'February 2',
+    title: 'Jordan, 1980',
+    date: '1980',
     status: 'Expanded',
     description:
-      "Extended reach to Syria, reinforcing Gezairi's position as a leading regional freight forwarder.",
+      'Gezairi expanded operations to Jordan, establishing a strong foothold in the Levant region.',
     position: 'right' as const,
     image: logo1952to1980,
   },
   {
-    title: 'Cyprus, 1983',
-    date: 'January 31',
+    title: 'Cyprus, 1980',
+    date: '1980',
     status: 'Expanded',
     description:
       'Established presence in Cyprus, bridging operations between the Middle East and Europe.',
     position: 'left' as const,
+    image: logo1952to1980,
+  },
+  {
+    title: 'Turkey, 1989',
+    date: '1989',
+    status: 'Expanded',
+    description:
+      "Opened operations in Turkey, connecting Gezairi's network to key trade routes between Europe and Asia.",
+    position: 'right' as const,
     image: logo1989,
   },
   {
-    title: 'UAE, 2020',
-    date: 'February 2',
+    title: 'Iraq - Kurdistan, 2010',
+    date: '2010',
     status: 'Expanded',
     description:
-      'Opened operations in the United Arab Emirates, tapping into the dynamic Gulf logistics market.',
+      'Expanded further into Iraq with a dedicated office in Kurdistan, strengthening regional coverage.',
+    position: 'left' as const,
+    image: logo2010to2020,
+  },
+  {
+    title: 'Georgia, 2022',
+    date: '2022',
+    status: 'Expanded',
+    description:
+      'Opened backoffice operations in Georgia, further expanding the global support network.',
     position: 'right' as const,
     image: logo2010to2020,
   },
   {
-    title: 'KSA, 2023',
-    date: 'January 31',
+    title: 'KSA, 2025',
+    date: '2025',
     status: 'Expanded',
     description:
       'Expanded to the Kingdom of Saudi Arabia, capitalizing on the rapidly growing logistics sector.',
     position: 'left' as const,
-    image: logo2010to2020,
+    image: logo2025,
   },
   {
-    title: 'India, 2023 - Backoffice',
-    date: 'February 2',
+    title: 'UAE, 2025',
+    date: '2025',
     status: 'Expanded',
     description:
-      'Set up backoffice operations in India, leveraging skilled talent for operational efficiency.',
-    position: 'right' as const,
-    image: logo2010to2020,
-  },
-  {
-    title: 'Georgia, 2023 - Backoffice',
-    date: 'January 31',
-    status: 'Expanded',
-    description:
-      'Opened backoffice operations in Georgia, further expanding the global support network.',
-    position: 'left' as const,
-    image: logo2010to2020,
-  },
-  {
-    title: 'India',
-    date: 'February 2',
-    status: 'Expanded',
-    description:
-      'Further expansion of operations in India, strengthening the presence in South Asia.',
+      'Opened operations in the United Arab Emirates, tapping into the dynamic Gulf logistics market.',
     position: 'right' as const,
     image: logo2025,
   },
