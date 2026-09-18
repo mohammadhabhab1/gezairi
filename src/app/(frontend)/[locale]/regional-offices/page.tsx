@@ -82,20 +82,19 @@ interface OfficeCardData {
 // Individual pin coordinates — adjust each one independently.
 // `left` and `top` are percentages of the map container (2348x1973 aspect,
 // matching the source map image at public/images/gezairi/map.png).
-// Each coordinate targets the actual office city's real lon/lat, converted
-// to pixel space via a linear fit calibrated against two precisely
-// identifiable landmarks (Cyprus's Cape Apostolos Andreas and Qatar's Ras
-// Rakan tip), then verified to land on an opaque (land) pixel with real
-// clearance from the coastline by sampling the source PNG's alpha channel.
-const turkeyPin = { left: '10.05%', top: '15.91%' } // Istanbul
-const cyprusPin = { left: '23.47%', top: '36.95%' } // Limassol
-const lebanonPin = { left: '31.56%', top: '39.53%' } // Beirut
-const jordanPin = { left: '32.96%', top: '46.02%' } // Amman
-const georgiaPin = { left: '51.92%', top: '12.11%' } // Poti
-const iraqPin = { left: '60.78%', top: '41.46%' } // Baghdad
-const saudiArabiaPin = { left: '45.78%', top: '80.03%' } // Jeddah
-const uaePin = { left: '96.72%', top: '68.47%' } // Dubai
-const syriaPin = { left: '34.11%', top: '40.80%' } // Damascus
+// Each coordinate targets the visual center of that country's own
+// landmass on the map (not a specific city), verified to land on an
+// opaque (land) pixel with real clearance from any border/coastline by
+// sampling the source PNG's alpha channel.
+const turkeyPin = { left: '23.42%', top: '17.74%' }
+const cyprusPin = { left: '20.02%', top: '37.61%' }
+const lebanonPin = { left: '32.84%', top: '34.97%' }
+const jordanPin = { left: '30.66%', top: '50.18%' }
+const georgiaPin = { left: '46.42%', top: '6.69%' }
+const iraqPin = { left: '57.50%', top: '39.53%' }
+const saudiArabiaPin = { left: '48.98%', top: '68.42%' }
+const uaePin = { left: '95.06%', top: '71.77%' }
+const syriaPin = { left: '40.46%', top: '36.49%' }
 
 interface MapPinProps {
   left: string
