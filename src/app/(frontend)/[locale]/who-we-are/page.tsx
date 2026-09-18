@@ -127,8 +127,9 @@ const fallbackVision = {
 // falls in, per Gezairi's rebrand history.
 const logo1945 = '/images/gezairi/history/gezairi-logo-1945.png'
 const logo1952to1980 = '/images/gezairi/history/gezairi-logo-1952-1980.png'
+// Used for 1989 through 2022 — the brand kept this logo across that
+// whole span, only switching to the current one (logo2025) in 2025.
 const logo1989 = '/images/gezairi/history/gezairi-logo-1989.png'
-const logo2010to2020 = '/images/gezairi/history/gezairi-logo-2010-2020.png'
 const logo2025 = '/images/gezairi/history/gezairi-logo-2025.png'
 
 const fallbackTimelineEvents = [
@@ -193,7 +194,7 @@ const fallbackTimelineEvents = [
     description:
       'Expanded further into Iraq with a dedicated office in Kurdistan, strengthening regional coverage.',
     position: 'left' as const,
-    image: logo2010to2020,
+    image: logo1989,
   },
   {
     title: 'Georgia, 2022',
@@ -202,7 +203,7 @@ const fallbackTimelineEvents = [
     description:
       'Opened backoffice operations in Georgia, further expanding the global support network.',
     position: 'right' as const,
-    image: logo2010to2020,
+    image: logo1989,
   },
   {
     title: 'KSA, 2025',
