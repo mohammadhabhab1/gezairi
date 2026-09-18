@@ -226,26 +226,24 @@ export default async function RegionalOfficesPage({
 
         <div className="flex flex-col gap-[40px] items-center w-full">
           {/* World Map Image with Location Pins */}
-          <div className="w-full max-w-[900px] mx-auto rounded-[20px] bg-white shadow-[0_20px_60px_-25px_rgba(31,43,123,0.35)] ring-1 ring-gezairi-blue/10 p-4 sm:p-8 md:p-10">
-            <div className="relative w-full aspect-[2348/1973]">
-              <Image
-                src="/images/gezairi/map.png"
-                alt="Gezairi regional offices map covering Turkey, Georgia, Cyprus, Lebanon, Syria, Jordan, Iraq, Saudi Arabia and the UAE"
-                fill
-                sizes="(max-width: 900px) 100vw, 900px"
-                className="object-contain"
-                priority
-              />
-              <MapPin {...turkeyPin} label="Turkey" />
-              <MapPin {...cyprusPin} label="Cyprus" />
-              <MapPin {...lebanonPin} label="Lebanon" />
-              <MapPin {...jordanPin} label="Jordan" />
-              <MapPin {...georgiaPin} label="Georgia" />
-              <MapPin {...iraqPin} label="Iraq" />
-              <MapPin {...saudiArabiaPin} label="Saudi Arabia" />
-              <MapPin {...uaePin} label="UAE" />
-              <MapPin {...syriaPin} label="Syria" />
-            </div>
+          <div className="relative w-full max-w-[900px] mx-auto aspect-[2348/1973]">
+            <Image
+              src="/images/gezairi/map.png"
+              alt="Gezairi regional offices map covering Turkey, Georgia, Cyprus, Lebanon, Syria, Jordan, Iraq, Saudi Arabia and the UAE"
+              fill
+              sizes="(max-width: 900px) 100vw, 900px"
+              className="object-contain"
+              priority
+            />
+            <MapPin {...turkeyPin} label="Turkey" />
+            <MapPin {...cyprusPin} label="Cyprus" />
+            <MapPin {...lebanonPin} label="Lebanon" />
+            <MapPin {...jordanPin} label="Jordan" />
+            <MapPin {...georgiaPin} label="Georgia" />
+            <MapPin {...iraqPin} label="Iraq" />
+            <MapPin {...saudiArabiaPin} label="Saudi Arabia" />
+            <MapPin {...uaePin} label="UAE" />
+            <MapPin {...syriaPin} label="Syria" />
           </div>
 
           {/* Office Cards Grid */}
