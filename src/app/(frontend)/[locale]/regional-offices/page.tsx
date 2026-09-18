@@ -88,8 +88,8 @@ interface OfficeCardData {
 // sampling the source PNG's alpha channel.
 const turkeyPin = { left: '23.42%', top: '17.74%' }
 const cyprusPin = { left: '20.02%', top: '37.61%' }
-const lebanonPin = { left: '32.84%', top: '34.97%' }
-const jordanPin = { left: '30.66%', top: '50.18%' }
+const lebanonPin = { left: '32.71%', top: '39.69%' }
+const jordanPin = { left: '36.80%', top: '48.15%' }
 const georgiaPin = { left: '46.42%', top: '6.69%' }
 const iraqPin = { left: '57.50%', top: '39.53%' }
 const saudiArabiaPin = { left: '48.98%', top: '68.42%' }
