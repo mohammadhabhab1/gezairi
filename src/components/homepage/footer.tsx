@@ -58,7 +58,7 @@ export function Footer({ backgroundImageUrl, logoUrl }: FooterProps) {
             <div className="mb-8">
               <h4 className="text-white/80 text-sm mb-4">Contact Office</h4>
               <div className="flex items-start gap-2 text-white">
-                <MapPin className="w-4 h-4 mt-1 shrink-0" />
+                <MapPin className="w-7 h-7 mt-0.5 shrink-0" />
                 <div className="text-sm">
                   <p className="font-medium">Beirut, Lebanon</p>
                 </div>
