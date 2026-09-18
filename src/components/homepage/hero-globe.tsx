@@ -137,24 +137,24 @@ export function HeroGlobe({ seaLabel = 'Sea', airLabel = 'Air', landLabel = 'Lan
       </div>
 
       {/* Sea badge */}
-      <div className="hero-badge-pulse absolute left-[-4%] top-[14%] flex items-center gap-2 rounded-full bg-white/95 px-3.5 py-2 shadow-[0_12px_28px_rgba(44,50,120,0.18)] ring-1 ring-gezairi-blue/10 backdrop-blur sm:left-[-2%] sm:px-4 sm:py-2.5">
-        <div className="relative h-[22px] w-[22px] md:h-[26px] md:w-[26px]">
+      <div className="hero-badge-pulse absolute left-[-4%] top-[14%] flex items-center gap-2.5 rounded-full bg-white/95 px-4 py-2.5 shadow-[0_12px_28px_rgba(44,50,120,0.18)] ring-1 ring-gezairi-blue/10 backdrop-blur sm:left-[-2%] sm:px-5 sm:py-3">
+        <div className="relative h-[44px] w-[44px] md:h-[52px] md:w-[52px]">
           <Image src="/images/gezairi/services/ocean-freight.png" alt="" aria-hidden="true" fill className="object-contain" unoptimized />
         </div>
         <span className="text-[12px] font-semibold tracking-wide text-gezairi-blue md:text-[14px]">{seaLabel}</span>
       </div>
 
       {/* Air badge */}
-      <div className="hero-badge-pulse hero-badge-pulse--delay-2 absolute right-[-3%] top-[2%] flex items-center gap-2 rounded-full bg-white/95 px-3.5 py-2 shadow-[0_12px_28px_rgba(44,50,120,0.18)] ring-1 ring-gezairi-blue/10 backdrop-blur sm:right-[-1%] sm:px-4 sm:py-2.5">
-        <div className="relative h-[22px] w-[22px] md:h-[26px] md:w-[26px]">
+      <div className="hero-badge-pulse hero-badge-pulse--delay-2 absolute right-[-3%] top-[2%] flex items-center gap-2.5 rounded-full bg-white/95 px-4 py-2.5 shadow-[0_12px_28px_rgba(44,50,120,0.18)] ring-1 ring-gezairi-blue/10 backdrop-blur sm:right-[-1%] sm:px-5 sm:py-3">
+        <div className="relative h-[44px] w-[44px] md:h-[52px] md:w-[52px]">
           <Image src="/images/gezairi/services/air-freight.png" alt="" aria-hidden="true" fill className="object-contain" unoptimized />
         </div>
         <span className="text-[12px] font-semibold tracking-wide text-gezairi-blue md:text-[14px]">{airLabel}</span>
       </div>
 
       {/* Land badge */}
-      <div className="hero-badge-pulse hero-badge-pulse--delay-4 absolute bottom-[12%] right-[-4%] flex items-center gap-2 rounded-full bg-white/95 px-3.5 py-2 shadow-[0_12px_28px_rgba(44,50,120,0.18)] ring-1 ring-gezairi-blue/10 backdrop-blur sm:right-[-2%] sm:px-4 sm:py-2.5">
-        <div className="relative h-[22px] w-[22px] md:h-[26px] md:w-[26px]">
+      <div className="hero-badge-pulse hero-badge-pulse--delay-4 absolute bottom-[12%] right-[-4%] flex items-center gap-2.5 rounded-full bg-white/95 px-4 py-2.5 shadow-[0_12px_28px_rgba(44,50,120,0.18)] ring-1 ring-gezairi-blue/10 backdrop-blur sm:right-[-2%] sm:px-5 sm:py-3">
+        <div className="relative h-[44px] w-[44px] md:h-[52px] md:w-[52px]">
           <Image src="/images/gezairi/services/land-freight.png" alt="" aria-hidden="true" fill className="object-contain" unoptimized />
         </div>
         <span className="text-[12px] font-semibold tracking-wide text-gezairi-blue md:text-[14px]">{landLabel}</span>
