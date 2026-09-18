@@ -1,7 +1,7 @@
 'use client'
 
-import { useEffect, useRef, useState } from 'react'
-import { useInView, useMotionValue, animate } from 'motion/react'
+import { useEffect, useState } from 'react'
+import { useMotionValue, animate } from 'motion/react'
 
 interface CountUpProps {
   value: string
@@ -42,14 +42,16 @@ function parseValue(value: string): { number: number; prefix: string; suffix: st
 }
 
 export function CountUp({ value, duration = 2, className, style }: CountUpProps) {
-  const ref = useRef<HTMLSpanElement>(null)
-  const isInView = useInView(ref, { once: true, margin: '-50px' })
   const motion = useMotionValue(0)
   const parsed = parseValue(value)
   const [display, setDisplay] = useState(`${parsed.prefix}0${parsed.suffix}`)
 
+  // Animates on mount rather than waiting for the element to scroll into
+  // view: on mobile the hero content stacks (headline, then globe, then
+  // this stats row), so the row can start below the fold, and the
+  // scroll-triggered visibility check was unreliable there — it would
+  // sometimes never fire, permanently leaving the value stuck at 0.
   useEffect(() => {
-    if (!isInView) return
     const controls = animate(motion, parsed.number, {
       duration,
       ease: [0.25, 0.1, 0.25, 1],
@@ -59,10 +61,10 @@ export function CountUp({ value, duration = 2, className, style }: CountUpProps)
       },
     })
     return () => controls.stop()
-  }, [isInView, parsed.number, parsed.prefix, parsed.suffix, parsed.decimals, duration, motion])
+  }, [parsed.number, parsed.prefix, parsed.suffix, parsed.decimals, duration, motion])
 
   return (
-    <span ref={ref} className={className} style={style}>
+    <span className={className} style={style}>
       {display}
     </span>
   )
