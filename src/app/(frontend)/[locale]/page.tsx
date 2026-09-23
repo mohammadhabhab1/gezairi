@@ -1,9 +1,8 @@
 import Image from 'next/image'
 import { getTranslations, setRequestLocale } from 'next-intl/server'
 import { PageLayoutServer as PageLayout } from '@/components/layout'
-import { getValues, getServices, getMediaUrl } from '@/lib/payload'
-import type { Value, Service, Media } from '@/payload-types'
-import { ServicesCarousel } from '@/components/homepage/services-carousel'
+import { getValues, getMediaUrl } from '@/lib/payload'
+import type { Value, Media } from '@/payload-types'
 import { HeroStats } from '@/components/homepage/hero-stats'
 import { HeroGlobe } from '@/components/homepage/hero-globe'
 import { HeroHeadline } from '@/components/homepage/hero-headline'
@@ -17,147 +16,39 @@ const fallbackValues = [
     icon: '/images/gezairi/icons/professionalism.svg',
     title: 'Professionalism',
     description:
-      'We believe in adopting the highest standards of professionalism in our business operations and in providing First Class Service to our esteemed clients.',
+      'We hold ourselves to the highest standards in every aspect of our operations, delivering first-class service that our clients can consistently rely on.',
   },
   {
     icon: '/images/gezairi/icons/good-partnership.svg',
     title: 'Good Partnership',
     description:
-      'We believe in seeking and building a robust, long lasting and mutually beneficial Partnership with all our stakeholders.',
+      'We build lasting, mutually beneficial relationships with our clients, partners, and stakeholders — grounded in trust, transparency, and shared success.',
   },
   {
     icon: '/images/gezairi/icons/legacy.svg',
     title: 'Legacy',
     description:
-      'We take pride in our rich history and profound experience and embark on its lessons for innovatively modernizing our profession.',
+      'With over 80 years of history, we carry a deep pride in our roots while continuously evolving to meet the demands of a changing industry.',
   },
   {
     icon: '/images/gezairi/icons/sustainability.svg',
     title: 'Sustainability',
     description:
-      'We strive to sustain our success, competitiveness, and profitability with resilience and agility by continuously creating value to ensure business continuity.',
+      'We are committed to sustaining our growth and competitiveness by continuously creating value — for our business, our clients, and the communities we serve.',
   },
   {
     icon: '/images/gezairi/icons/big-players.svg',
     title: 'Big Players',
     description:
-      'We focus on approaching our challenges and opportunities with a smile while nurturing a culture of positivity.',
+      'We operate at the highest level, working alongside major global partners and handling complex, large-scale logistics with the expertise and capability to deliver.',
   },
   {
     icon: '/images/gezairi/icons/positivity.svg',
     title: 'Positivity',
     description:
-      'We focus on approaching our challenges and opportunities with a smile while nurturing a culture of positivity.',
+      'We approach every challenge and opportunity with a constructive mindset, fostering a culture where people feel motivated, valued, and proud of what they do.',
   },
 ]
-
-const fallbackServices = [
-  {
-    icon: '/images/gezairi/services/air-freight.png',
-    iconWidth: 66,
-    iconHeight: 65,
-    title: 'Air Freight',
-    description: 'Transportation of goods by air.',
-    slug: 'air-freight',
-  },
-  {
-    icon: '/images/gezairi/services/ocean-freight.png',
-    iconWidth: 60,
-    iconHeight: 71,
-    title: 'Ocean Freight',
-    description: 'Shipping goods via sea routes.',
-    slug: 'ocean-freight',
-  },
-  {
-    icon: '/images/gezairi/services/land-freight.png',
-    iconWidth: 91,
-    iconHeight: 63,
-    title: 'Land Freight',
-    description: 'Transporting goods over land.',
-    slug: 'land-freight',
-  },
-  {
-    icon: '/images/gezairi/services/consolidation.png',
-    iconWidth: 74,
-    iconHeight: 74,
-    title: 'Consolidation',
-    description: 'Combining shipments for efficiency.',
-    slug: 'consolidation',
-  },
-  {
-    icon: '/images/gezairi/services/packing-moving.png',
-    iconWidth: 65,
-    iconHeight: 65,
-    title: 'Packing & Local Moves',
-    description: 'Preparing items for relocation.',
-    slug: 'packing-moving',
-  },
-  {
-    icon: '/images/gezairi/services/warehousing.png',
-    iconWidth: 80,
-    iconHeight: 62,
-    title: 'Warehousing & Logistics',
-    description: 'Storage and management of goods',
-    slug: 'warehousing',
-  },
-  {
-    icon: '/images/gezairi/services/fairs-exhibitions.png',
-    iconWidth: 60,
-    iconHeight: 66,
-    title: 'Fairs & Exhibitions',
-    description: 'Logistics for events and displays.',
-    slug: 'fairs-exhibitions',
-  },
-  {
-    icon: '/images/gezairi/services/customs-clearance.png',
-    iconWidth: 55,
-    iconHeight: 66,
-    title: 'Customs Clearance',
-    description: 'Navigating import/export regulations.',
-    slug: 'customs-clearance',
-  },
-  {
-    icon: '/images/gezairi/services/relief-cargo.png',
-    iconWidth: 65,
-    iconHeight: 65,
-    title: 'Relief Cargo Specialists',
-    description: 'Handling emergency supply shipments.',
-    slug: 'relief-cargo',
-  },
-  {
-    icon: '/images/gezairi/services/heavy-lifts.png',
-    iconWidth: 65,
-    iconHeight: 64,
-    title: 'Projects and Heavy Lifts',
-    description: 'Managing large-scale transport projects.',
-    slug: 'heavy-lifts',
-  },
-  {
-    icon: '/images/gezairi/services/nvocc.png',
-    iconWidth: 75,
-    iconHeight: 65,
-    title: 'Box Operations for NVOCCs',
-    description: 'Managing non-vessel operating common carriers.',
-    slug: 'nvocc',
-  },
-  {
-    icon: '/images/gezairi/services/vessel-agency.png',
-    iconWidth: 65,
-    iconHeight: 65,
-    title: 'Vessel Agency',
-    description: 'Services for ship operations and logistics.',
-    slug: 'vessel-agency',
-  },
-]
-
-interface ServiceCardData {
-  icon: string
-  iconWidth: number
-  iconHeight: number
-  title: string
-  description: string
-  slug: string
-}
 
 interface ValueCardData {
   icon: string
@@ -175,18 +66,6 @@ function transformValue(value: Value): ValueCardData {
   }
 }
 
-function transformService(service: Service): ServiceCardData {
-  const iconUrl = service.icon ? getMediaUrl(service.icon as Media) : ''
-  return {
-    icon: iconUrl || `/images/gezairi/services/${service.slug}.png`,
-    iconWidth: service.iconWidth || 65,
-    iconHeight: service.iconHeight || 65,
-    title: service.title,
-    description: service.shortDescription,
-    slug: service.slug || '',
-  }
-}
-
 export default async function HomePage({ params }: { params: Promise<{ locale: string }> }) {
   const { locale } = await params
   setRequestLocale(locale)
@@ -194,17 +73,11 @@ export default async function HomePage({ params }: { params: Promise<{ locale: s
 
   // Fetch data from CMS
   const typedLocale = locale as import('payload').TypedLocale
-  const [valuesResult, servicesResult] = await Promise.all([
-    getValues(typedLocale),
-    getServices(typedLocale),
-  ])
+  const valuesResult = await getValues(typedLocale)
 
   // Use CMS data or fallback
   const values: ValueCardData[] =
     valuesResult.docs.length > 0 ? valuesResult.docs.map(transformValue) : fallbackValues
-
-  const services: ServiceCardData[] =
-    servicesResult.docs.length > 0 ? servicesResult.docs.map(transformService) : fallbackServices
 
   return (
     <PageLayout locale={typedLocale}>
@@ -277,18 +150,6 @@ export default async function HomePage({ params }: { params: Promise<{ locale: s
         </div>
       </section>
 
-      {/* Our Services Section */}
-      <section className="w-full max-w-[1340px] px-[10px] py-0">
-        <div className="flex flex-col items-start gap-[10px] md:gap-[30px]">
-          {/* Title */}
-          <div className="flex flex-col items-start gap-[10px]">
-            <SectionTitle>{t('ourServices')}</SectionTitle>
-          </div>
-
-          {/* Services Carousel */}
-          <ServicesCarousel services={services} />
-        </div>
-      </section>
     </PageLayout>
   )
 }

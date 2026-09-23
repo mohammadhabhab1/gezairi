@@ -12,7 +12,7 @@ const fallbackServices = [
     iconWidth: 66,
     iconHeight: 65,
     title: 'Air Freight',
-    description: 'Transportation o"f goods by air.',
+    description: 'Fast, reliable air cargo with global carrier partnerships and time-critical delivery options.',
     slug: 'air-freight',
   },
   {
@@ -20,7 +20,7 @@ const fallbackServices = [
     iconWidth: 60,
     iconHeight: 71,
     title: 'Ocean Freight',
-    description: 'Shipping goods via sea routes.',
+    description: 'FCL and LCL ocean freight across major global trade lanes, with competitive rates and full cargo tracking.',
     slug: 'ocean-freight',
   },
   {
@@ -28,7 +28,7 @@ const fallbackServices = [
     iconWidth: 91,
     iconHeight: 63,
     title: 'Land Freight',
-    description: 'Transporting goods over land.',
+    description: 'Cross-border trucking and road freight across Lebanon and the wider Middle East region.',
     slug: 'land-freight',
   },
   {
@@ -36,7 +36,7 @@ const fallbackServices = [
     iconWidth: 74,
     iconHeight: 74,
     title: 'Consolidation',
-    description: 'Combining shipments for efficiency.',
+    description: 'Reduce costs by consolidating your cargo with other shipments — flexible, affordable, and fully managed.',
     slug: 'consolidation',
   },
   {

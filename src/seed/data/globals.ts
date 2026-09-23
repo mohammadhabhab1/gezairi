@@ -71,16 +71,16 @@ export const siteSettingsData = {
 
 export const differentiatorsData = {
   leftColumn: [
-    { text: 'Being recognized globally with a successful history' },
-    { text: 'Having a clear business strategy for the coming 5 years' },
-    { text: 'Focusing on the quality and efficiency of our services' },
-    { text: 'Professional business communication for our clients support' },
+    { text: '80 years of industry experience and global recognition' },
+    { text: 'Operating 24/7 across all our offices' },
+    { text: 'A clear long-term strategy and growth roadmap' },
+    { text: 'Full supply chain coverage, end to end' },
   ],
   rightColumn: [
-    { text: 'Operating 24/7.' },
-    { text: 'Covering the full supply chain services' },
-    { text: 'Presence in more than 8 countries and 24 offices' },
-    { text: "Safeguarding client's confidentiality." },
+    { text: 'Uncompromising focus on quality and service efficiency' },
+    { text: 'Presence in 8 countries with a global agent network' },
+    { text: 'Professional communication and dedicated client support' },
+    { text: 'Strict commitment to client confidentiality' },
   ],
 }
 
@@ -90,10 +90,7 @@ export const whoWeAreData = {
     'started in 1945 when Abdul-Salam Bou-Azza El-Gezairi took the first step and opened a small customs clearing office in his hometown of Beirut, Lebanon.',
   additionalParagraphs: [
     {
-      text: 'Over the years, Gezairi continued to expand and widen its scope of activities through hard work, diligence, and dedication to customers.',
-    },
-    {
-      text: "The company's commitment to excellence forged a link around the world that made Gezairi become one of the leading international freight forwarding, shipping and logistics companies in the Middle East.",
+      text: "Driven by hard work, dedication, and an unwavering commitment to customers, Gezairi grew steadily into one of the Middle East's leading freight forwarding, shipping, and logistics groups, with a presence spanning 9 countries and over 600 people worldwide.",
     },
   ],
   stats: [
@@ -123,13 +120,13 @@ export const whoWeAreData = {
   visionTitle: "The Founder's Vision and Leadership Journey",
   visionParagraphs: [
     {
-      text: "Gezairi Transport's vision is to maintain leadership in offering a full range of transport, shipping, and logistics services based on high quality and fair value. We pledge to dedicate all our resources to attain total satisfaction and retention of our valued customers.",
+      text: 'Our vision is to lead the transport, shipping, and logistics industry across the Middle East — delivering high quality service at fair value, and putting our customers first in everything we do.',
     },
     {
-      text: 'Our pledge is to keep pioneering in our domain and region, inspired by our deeply rooted heritage.',
+      text: "Rooted in 80 years of heritage and inspired by our founder's pioneering spirit, we are committed to moving cargo faster, smarter, and safer.",
     },
     {
-      text: 'Our objective is to lead our customers beyond their recognized demands, by moving their cargo in the shortest time, optimal cost, and maximum safety. Our quest is to be responsive to new ideas and technologies that help in developing our transport industry and our human resources in which we believe and invest.',
+      text: 'We invest continuously in our people, our processes, and new technologies — because staying ahead means never standing still.',
     },
   ],
   differentiatorsTitle: 'What Differentiate Us From Others?',
