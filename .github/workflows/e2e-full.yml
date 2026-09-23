@@ -63,7 +63,7 @@ jobs:
         run: pnpm run build
 
       - name: Run Playwright tests
-        run: pnpm run test:e2e -- --project=${{ matrix.browser }}
+        run: pnpm run test:e2e --project=${{ matrix.browser }}
 
       - name: Upload Playwright report
         uses: actions/upload-artifact@v4

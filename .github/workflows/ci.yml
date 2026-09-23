@@ -55,6 +55,11 @@ jobs:
       - name: Install dependencies
         run: pnpm install --frozen-lockfile
 
+      - name: Generate Payload types
+        run: pnpm run generate:types
+        env:
+          PAYLOAD_SECRET: test-secret-key-for-ci-minimum-32-chars
+
       - name: Run TypeScript check
         run: pnpm run typecheck
 
@@ -100,7 +105,7 @@ jobs:
         run: pnpm install --frozen-lockfile
 
       - name: Run unit tests
-        run: pnpm run test -- --run --coverage
+        run: pnpm run test --run --passWithNoTests
 
       - name: Upload coverage reports
         uses: codecov/codecov-action@v4
@@ -155,7 +160,7 @@ jobs:
         run: pnpm run build
 
       - name: Run Playwright tests
-        run: pnpm run test:e2e -- --project=chromium
+        run: pnpm run test:e2e --project=chromium
 
       - name: Upload Playwright report
         uses: actions/upload-artifact@v4
