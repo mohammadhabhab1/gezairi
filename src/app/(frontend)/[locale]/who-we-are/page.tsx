@@ -3,14 +3,12 @@ import { setRequestLocale } from 'next-intl/server'
 import { getTranslations } from 'next-intl/server'
 import { PageLayoutServer as PageLayout } from '@/components/layout'
 import {
-  getValues,
   getDifferentiators,
   getWhoWeAre,
   getTimelineEvents,
   getMediaUrl,
 } from '@/lib/payload'
 import type {
-  Value,
   Media,
   Differentiator,
   WhoWeAre as WhoWeAreType,
@@ -21,65 +19,25 @@ import { TimelineRow } from '@/components/who-we-are/timeline-row'
 
 const fallbackDifferentiators = {
   left: [
-    'Being recognized globally with a successful history',
-    'Having a clear business strategy for the coming 5 years',
-    'Focusing on the quality and efficiency of our services',
-    'Professional business communication for our clients suuport',
+    '80 years of industry experience and global recognition',
+    'Operating 24/7 across all our offices',
+    'A clear long-term strategy and growth roadmap',
+    'Full supply chain coverage, end to end',
   ],
   right: [
-    'Operating 24/7.',
-    'Covering the full supply chain services',
-    'Presence in more than 8 countries and 24 offices',
-    "Safeguarding client's confidentiality.",
+    'Uncompromising focus on quality and service efficiency',
+    'Presence in 8 countries with a global agent network',
+    'Professional communication and dedicated client support',
+    'Strict commitment to client confidentiality',
   ],
 }
-
-const fallbackValues = [
-  {
-    icon: '/images/gezairi/icons/professionalism-icon.svg',
-    title: 'Professionalism',
-    description:
-      'We believe in adopting the highest standards of professionalism in our business operations and in providing First Class Service to our esteemed clients.',
-  },
-  {
-    icon: '/images/gezairi/icons/partnership-icon.svg',
-    title: 'Good Partnership',
-    description:
-      'We believe in seeking and building a robust, long lasting and mutually beneficial Partnership with all our stakeholders.',
-  },
-  {
-    icon: '/images/gezairi/icons/legacy-icon.svg',
-    title: 'Legacy',
-    description:
-      'We take pride in our rich history and profound experience and embark on its lessons for innovatively modernizing our profession.',
-  },
-  {
-    icon: '/images/gezairi/icons/sustainability-icon.svg',
-    title: 'Sustainability',
-    description:
-      'We strive to sustain our success, competitiveness, and profitability with resilience and agility by continuously creating value to ensure business continuity.',
-  },
-  {
-    icon: '/images/gezairi/icons/goals-icon.svg',
-    title: 'Big Players',
-    description:
-      'We focus on approaching our challenges and opportunities with a smile while nurturing a culture of positivity.',
-  },
-  {
-    icon: '/images/gezairi/icons/positivity-icon.svg',
-    title: 'Positivity',
-    description:
-      'We focus on approaching our challenges and opportunities with a smile while nurturing a culture of positivity.',
-  },
-]
 
 const fallbackIntro = {
   highlightedIntro: 'The 1000 miles journey',
   introText:
     'started in 1945 when Abdul-Salam Bou-Azza El-Gezairi took the first step and opened a small customs clearing office in his hometown of Beirut, Lebanon.',
   additionalParagraphs: [
-    'Over the years, Gezairi continued to expand and widen its scope of activities through hard work, diligence, and dedication to customers.',
-    "The company's commitment to excellence forged a link around the world that made Gezairi become one of the leading international freight forwarding, shipping and logistics companies in the Middle East.",
+    "Driven by hard work, dedication, and an unwavering commitment to customers, Gezairi grew steadily into one of the Middle East's leading freight forwarding, shipping, and logistics groups, with a presence spanning 9 countries and over 600 people worldwide.",
   ],
 }
 
@@ -117,9 +75,9 @@ const fallbackStats = [
 const fallbackVision = {
   visionTitle: "The Founder's Vision and Leadership Journey",
   visionParagraphs: [
-    "Gezairi Transport's vision is to maintain leadership in offering a full range of transport, shipping, and logistics services based on high quality and fair value. We pledge to dedicate all our resources to attain total satisfaction and retention of our valued customers.",
-    'Our pledge is to keep pioneering in our domain and region, inspired by our deeply rooted heritage.',
-    'Our objective is to lead our customers beyond their recognized demands, by moving their cargo in the shortest time, optimal cost, and maximum safety. Our quest is to be responsive to new ideas and technologies that help in developing our transport industry and our human resources in which we believe and invest.',
+    'Our vision is to lead the transport, shipping, and logistics industry across the Middle East — delivering high quality service at fair value, and putting our customers first in everything we do.',
+    "Rooted in 80 years of heritage and inspired by our founder's pioneering spirit, we are committed to moving cargo faster, smarter, and safer.",
+    'We invest continuously in our people, our processes, and new technologies — because staying ahead means never standing still.',
   ],
 }
 
@@ -224,12 +182,6 @@ const fallbackTimelineEvents = [
   },
 ]
 
-interface ValueCardData {
-  icon: string
-  title: string
-  description: string
-}
-
 interface StatData {
   type: 'icon' | 'number'
   icon: string
@@ -245,16 +197,6 @@ interface TimelineEventData {
   status?: string
   image?: string
   position: 'left' | 'right'
-}
-
-function transformValue(value: Value): ValueCardData {
-  const iconUrl = value.icon ? getMediaUrl(value.icon as Media) : ''
-  return {
-    icon:
-      iconUrl || `/images/gezairi/icons/${value.title.toLowerCase().replace(/\s+/g, '-')}-icon.svg`,
-    title: value.title,
-    description: value.description,
-  }
 }
 
 function transformTimelineEvent(event: TimelineEvent): TimelineEventData {
@@ -434,16 +376,11 @@ export default async function WhoWeArePage({ params }: { params: Promise<{ local
   const t = await getTranslations('whoWeAre')
 
   const typedLocale = locale as import('payload').TypedLocale
-  const [valuesResult, differentiatorsResult, whoWeAreResult, timelineResult] = await Promise.all([
-    getValues(typedLocale),
+  const [differentiatorsResult, whoWeAreResult, timelineResult] = await Promise.all([
     getDifferentiators(typedLocale),
     getWhoWeAre(typedLocale),
     getTimelineEvents(typedLocale),
   ])
-
-  // Values
-  const values: ValueCardData[] =
-    valuesResult.docs.length > 0 ? valuesResult.docs.map(transformValue) : fallbackValues
 
   // Differentiators
   const diffData = differentiatorsResult as Differentiator | null
@@ -673,77 +610,6 @@ export default async function WhoWeArePage({ params }: { params: Promise<{ local
               </div>
             ))}
           </div>
-        </div>
-      </section>
-
-      {/* Our Values Section */}
-      <section className="flex w-full max-w-[1330px] flex-col gap-[20px] px-[10px] md:gap-[30px] md:px-[10px]">
-        <SectionTitle>{t('ourValues')}</SectionTitle>
-        <div className="flex flex-col items-center gap-[10px] md:hidden">
-          {values.slice(0, 2).map((value, index) => (
-            <div
-              key={index}
-              className="group relative flex h-[294px] w-full cursor-default flex-col items-center justify-center overflow-hidden rounded-[10px] bg-white px-[20px] py-[49px] transition-shadow duration-300 hover:shadow-[0_12px_32px_rgba(0,0,0,0.15)]"
-            >
-              {/* Sweep overlay — slides up from bottom */}
-              <div className="pointer-events-none absolute inset-x-0 bottom-0 h-0 bg-[#9b7c4bbf] transition-all duration-500 ease-out group-hover:h-full" />
-              <div className="relative z-10 flex w-full flex-col items-center gap-[27px]">
-                <div className="relative h-[100px] w-[100px] transition-transform duration-300 group-hover:scale-110">
-                  <Image
-                    src={value.icon}
-                    alt={value.title}
-                    fill
-                    className="object-contain transition-all duration-500 group-hover:brightness-0 group-hover:invert"
-                    unoptimized
-                  />
-                </div>
-                <h3 className="text-[19.3px] font-semibold leading-[25px] tracking-[0.08px] text-gezairi-title transition-colors duration-300 group-hover:text-white">
-                  {value.title}
-                </h3>
-                <p className="text-center text-[14.4px] font-light leading-[19px] tracking-[0.17px] text-black transition-colors duration-300 group-hover:text-white">
-                  {value.description}
-                </p>
-              </div>
-            </div>
-          ))}
-          <div className="flex items-center justify-center">
-            <Image
-              src="/images/gezairi/icons/arrow-up-footer.svg"
-              alt="Show more"
-              width={40}
-              height={25}
-              className="rotate-180"
-              unoptimized
-            />
-          </div>
-        </div>
-        <div className="hidden w-full gap-[20px] md:grid md:grid-cols-2 lg:grid-cols-3">
-          {values.map((value, index) => (
-            <div
-              key={index}
-              className="group relative flex h-auto min-h-[200px] w-full cursor-default flex-col items-center justify-center overflow-hidden rounded-[10px] bg-white px-[20px] py-8 transition-shadow duration-300 hover:shadow-[0_12px_32px_rgba(0,0,0,0.15)] lg:h-[294px] lg:w-[420px] lg:py-[49px]"
-            >
-              {/* Sweep overlay — slides up from bottom */}
-              <div className="pointer-events-none absolute inset-x-0 bottom-0 h-0 bg-[#9b7c4bbf] transition-all duration-500 ease-out group-hover:h-full" />
-              <div className="relative z-10 flex w-full flex-col items-center gap-[27px]">
-                <div className="relative h-[100px] w-[100px] transition-transform duration-300 group-hover:scale-110">
-                  <Image
-                    src={value.icon}
-                    alt={value.title}
-                    fill
-                    className="object-contain transition-all duration-500 group-hover:brightness-0 group-hover:invert"
-                    unoptimized
-                  />
-                </div>
-                <h3 className="text-[19.3px] font-semibold leading-[25px] tracking-[0.08px] text-gezairi-title transition-colors duration-300 group-hover:text-white">
-                  {value.title}
-                </h3>
-                <p className="text-center text-[14.4px] font-light leading-[19px] tracking-[0.17px] text-black transition-colors duration-300 group-hover:text-white">
-                  {value.description}
-                </p>
-              </div>
-            </div>
-          ))}
         </div>
       </section>
 
