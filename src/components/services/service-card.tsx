@@ -26,6 +26,7 @@ export function ServiceCard({
 }) {
   return (
     <motion.div
+      className="h-full"
       initial={{ opacity: 0, y: 30 }}
       whileInView={{ opacity: 1, y: 0 }}
       viewport={{ once: true, margin: '-50px' }}
@@ -34,7 +35,7 @@ export function ServiceCard({
     >
       <Link
         href={`/${locale}/services/${service.slug}`}
-        className="group flex h-[216px] w-full cursor-pointer flex-col items-start justify-start overflow-hidden bg-white px-[18px] py-[20px] transition-shadow focus:outline-none focus:ring-2 focus:ring-[#9B7C4B] lg:h-[216.36px]"
+        className="group flex h-full min-h-[216px] w-full cursor-pointer flex-col items-start justify-start bg-white px-[18px] py-[20px] transition-shadow focus:outline-none focus:ring-2 focus:ring-[#9B7C4B]"
       >
         <div className="flex w-full flex-col items-start gap-[20px]">
           <div className="flex w-full flex-col items-start gap-[7px]">
