@@ -89,7 +89,7 @@ const fallbackServiceData: Record<string, FallbackServiceData> = {
   },
   warehousing: {
     title: 'Warehousing & Logistics',
-    shortDescription: 'Storage and management of goods',
+    shortDescription: 'Storage and management of goods.',
     fullDescription:
       'Secure, well-located warehousing facilities backed by efficient logistics management across the region.',
     features: [

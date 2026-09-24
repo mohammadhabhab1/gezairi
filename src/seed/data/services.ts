@@ -95,7 +95,7 @@ export const servicesData = [
   {
     title: 'Warehousing & Logistics',
     slug: 'warehousing',
-    shortDescription: 'Storage and management of goods',
+    shortDescription: 'Storage and management of goods.',
     iconPath: '/images/gezairi/services/warehousing.png',
     iconWidth: 80,
     iconHeight: 62,
