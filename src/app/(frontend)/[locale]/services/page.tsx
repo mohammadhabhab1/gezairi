@@ -52,7 +52,7 @@ const fallbackServices = [
     iconWidth: 80,
     iconHeight: 62,
     title: 'Warehousing & Logistics',
-    description: 'Storage and management of goods',
+    description: 'Storage and management of goods.',
     slug: 'warehousing',
   },
   {
