@@ -249,7 +249,6 @@ export function PageLayout({ children, navItems: navItemsProp, footerData }: Pag
                             <span className="hidden md:inline leading-[19px]">{footer.phoneNumbers[1]?.number}</span>
                           </p>
                           <p><a href={`mailto:${footer.email}`} className="no-underline leading-[17px]">{footer.email}</a></p>
-                          <p><a href="mailto:hr@gezairi.com" className="no-underline leading-[15px]">hr@gezairi.com</a></p>
                         </div>
                       </div>
                     </div>
@@ -330,8 +329,11 @@ export function PageLayout({ children, navItems: navItemsProp, footerData }: Pag
 
     {/* Copyright */}
     <div className="w-full bg-[#bbbdbf] py-5">
-      <p className="text-center text-[#3f444b] text-[17.3px] leading-[23px] tracking-[0.07px]">
-        {footer.copyrightText}
+      <p
+        className="text-center text-[#3f444b] text-[17.3px] leading-[23px] tracking-[0.07px]"
+        suppressHydrationWarning
+      >
+        {footer.copyrightText.replace(/\d{4}/, String(new Date().getFullYear()))}
       </p>
     </div>
     </>

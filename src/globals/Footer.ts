@@ -126,7 +126,7 @@ export const Footer: GlobalConfig = {
     {
       name: 'copyrightText',
       type: 'text',
-      defaultValue: 'Copyright 2025 © GEZAIRI',
+      defaultValue: 'Copyright 2026 © GEZAIRI',
       localized: true,
     },
   ],

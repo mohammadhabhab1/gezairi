@@ -5,26 +5,27 @@ import { getRegionalOffices } from '@/lib/payload'
 import type { RegionalOffice } from '@/payload-types'
 import { SectionTitle } from '@/components/ui/section-title'
 
-const fallbackOffices = [
+const fallbackOffices: OfficeCardData[] = [
   {
     country: 'Lebanon',
     cities: 'Beirut, Tripoli',
-    phone1: '+961 1 783783',
-    phone2: '+961 1 784784',
-    email: 'gezairi@gezairi.com',
+    phone1: '+961 1 783 783',
+    phone2: '+961 1 784 784',
+    email: 'lebanon@gezairi.com',
   },
   {
     country: 'Iraq',
-    cities: 'Baghdad, Erbil,Basra',
-    phone1: '+964 1 7181318',
-    phone2: '+964 1 7181344',
+    cities: 'Baghdad, Erbil and Basra',
+    phone1: '+964 77 044 382 62 (Baghdad)',
+    phone2: '+964 75 106 339 80 (Erbil)',
+    phone2Kind: 'phone',
     email: 'iraq@gezairi.com',
   },
   {
     country: 'Cyprus',
     cities: 'Limassol, Nicosia',
-    phone1: '+357 25 827 890',
-    phone2: '+357 25 827939',
+    phone1: '+357 25 827 800',
+    phone2: '+357 25 827 939',
     email: 'cyprus@gezairi.com',
   },
   {
@@ -32,40 +33,41 @@ const fallbackOffices = [
     cities: 'Istanbul, Izmir and Mersin',
     phone1: '+90 850 724 04 84',
     phone2: '+90 212 232 33 61',
-    email: 'gezairi@gezairi.com',
+    phone2Kind: 'phone',
+    email: 'turkey@gezairi.com',
   },
   {
     country: 'KSA',
-    cities: 'Jeddah',
-    phone1: '+964 1 7181318',
-    phone2: '+964 1 7181344',
-    email: 'iraq@gezairi.com',
+    cities: 'Jeddah, Dammam',
+    phone1: '+966 12 581 0244',
+    phone2: '',
+    email: 'saudiarabia@gezairi.com',
   },
   {
     country: 'Georgia',
     cities: 'Poti',
-    phone1: '+357 25 827 890',
-    phone2: '+357 25 827939',
-    email: 'cyprus@gezairi.com',
+    phone1: '+995 558 48 88 58',
+    phone2: '',
+    email: 'georgia@gezairi.com',
   },
   {
     country: 'Jordan',
     cities: 'Amman, Aqaba',
-    phone1: '+961 1 783783',
-    phone2: '+961 1 784784',
-    email: 'gezairi@gezairi.com',
+    phone1: '+962 65 686 831',
+    phone2: '',
+    email: 'jordan@gezairi.com',
   },
   {
     country: 'UAE',
     cities: 'Dubai',
-    phone1: '+964 1 7181318',
-    phone2: '+964 1 7181344',
-    email: 'iraq@gezairi.com',
+    phone1: '+971 56 429 6918',
+    phone2: '',
+    email: 'emirates@gezairi.com',
   },
   {
     country: 'Syria',
-    cities: 'Damascus, Latakia, Tartous & Aleppo',
-    phone1: '+963 13315301',
+    cities: 'Damascus, Latakia, Tartous and Aleppo',
+    phone1: '+963 11 331 5301',
     phone2: '',
     email: 'syria@gezairi.com',
   },
@@ -76,6 +78,7 @@ interface OfficeCardData {
   cities: string
   phone1: string
   phone2: string
+  phone2Kind?: 'phone'
   email: string
 }
 
@@ -167,7 +170,7 @@ function OfficeCard({ office }: { office: OfficeCardData }) {
                 unoptimized
               />
             </div>
-            <a href={`tel:${office.phone1.replace(/\s/g, '')}`} className="text-[14px] md:text-[20px] font-light text-gezairi-dark hover:underline">
+            <a href={`tel:${office.phone1.replace(/\(.*?\)|\s/g, '')}`} className="text-[14px] md:text-[20px] font-light text-gezairi-dark hover:underline">
               {office.phone1}
             </a>
           </div>
@@ -176,7 +179,11 @@ function OfficeCard({ office }: { office: OfficeCardData }) {
           <div className="flex gap-[10px] items-center">
             <div className="w-[18px] h-[18px] md:w-[23px] md:h-[23px] relative shrink-0">
               <Image
-                src="/images/gezairi/icons/fax-icon-blue.svg"
+                src={
+                  office.phone2Kind === 'phone'
+                    ? '/images/gezairi/icons/phone-icon-blue.svg'
+                    : '/images/gezairi/icons/fax-icon-blue.svg'
+                }
                 alt=""
                 aria-hidden="true"
                 fill
@@ -184,7 +191,7 @@ function OfficeCard({ office }: { office: OfficeCardData }) {
                 unoptimized
               />
             </div>
-            <a href={`tel:${office.phone2.replace(/\s/g, '')}`} className="text-[14px] md:text-[20px] font-light text-gezairi-dark hover:underline">
+            <a href={`tel:${office.phone2.replace(/\(.*?\)|\s/g, '')}`} className="text-[14px] md:text-[20px] font-light text-gezairi-dark hover:underline">
               {office.phone2}
             </a>
           </div>
