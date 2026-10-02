@@ -34,7 +34,7 @@ export const CompanyStats: GlobalConfig = {
     {
       name: 'successfulShipments',
       type: 'text',
-      defaultValue: '4.7K',
+      defaultValue: '1M',
       localized: true,
       admin: {
         description: 'Number of successful shipments',
@@ -43,7 +43,7 @@ export const CompanyStats: GlobalConfig = {
     {
       name: 'totalCustomers',
       type: 'number',
-      defaultValue: 228,
+      defaultValue: 100000,
       admin: {
         description: 'Total number of customers',
       },

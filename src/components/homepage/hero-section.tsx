@@ -67,14 +67,14 @@ export function HeroSection({ containerImageUrl }: HeroSectionProps) {
           <div className="flex gap-16 mt-8">
             <div className="flex flex-col">
               <div className="flex items-center gap-2">
-                <span className="text-4xl font-medium text-black">4.7K</span>
+                <span className="text-4xl font-medium text-black">1M</span>
                 <TrendingUp className="h-6 w-6 text-green-500" />
               </div>
               <span className="text-base text-black">Successful Shipments</span>
             </div>
             <div className="flex flex-col">
               <div className="flex items-center gap-2">
-                <span className="text-4xl font-medium text-black">228</span>
+                <span className="text-4xl font-medium text-black">100K</span>
                 <TrendingUp className="h-6 w-6 text-green-500" />
               </div>
               <span className="text-base text-black">Total Customers</span>

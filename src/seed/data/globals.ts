@@ -51,8 +51,8 @@ export const companyStatsData = {
   establishedYear: 1945,
   countriesCount: 10,
   employeesCount: '600+',
-  successfulShipments: '4.7K',
-  totalCustomers: 228,
+  successfulShipments: '1M',
+  totalCustomers: 100000,
 }
 
 export const siteSettingsData = {
