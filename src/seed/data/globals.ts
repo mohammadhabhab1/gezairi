@@ -44,7 +44,7 @@ export const footerData = {
     { label: 'Terms of Use', url: '/terms' },
     { label: 'Privacy Policy', url: '/privacy-policy' },
   ],
-  copyrightText: 'Copyright 2025 © GEZAIRI',
+  copyrightText: 'Copyright 2026 © GEZAIRI',
 }
 
 export const companyStatsData = {

@@ -88,10 +88,6 @@ export function Footer({ backgroundImageUrl, logoUrl }: FooterProps) {
                   <Mail className="w-3 h-3" />
                   <a href="mailto:gezairi@gezairi.com" className="no-underline">gezairi@gezairi.com</a>
                 </div>
-                <div className="flex items-center gap-2 text-white text-xs">
-                  <Mail className="w-3 h-3" />
-                  <a href="mailto:hr@gezairi.com" className="no-underline">hr@gezairi.com</a>
-                </div>
               </div>
             </div>
 
@@ -157,7 +153,7 @@ export function Footer({ backgroundImageUrl, logoUrl }: FooterProps) {
       {/* Copyright bar */}
       <div className="w-full bg-gezairi-page-bg py-5">
         <p className="text-center text-gezairi-muted text-base">
-          Copyright 2025 © GEZAIRI
+          Copyright {new Date().getFullYear()} © GEZAIRI
         </p>
       </div>
     </>
