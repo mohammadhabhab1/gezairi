@@ -571,7 +571,7 @@ export default async function WhoWeArePage({ params }: { params: Promise<{ local
           ))}
         </div>
         {/* Desktop: two columns */}
-        <div className="hidden w-full gap-6 px-[10px] md:flex md:flex-col lg:flex-row lg:gap-[50px]">
+        <div className="hidden w-full gap-6 px-[10px] md:flex md:flex-col xl:flex-row xl:gap-[30px]">
           <div className="flex flex-col gap-[15px]">
             {diffLeft.map((item, index) => (
               <div key={index} className="flex items-center gap-[10px]">
@@ -585,7 +585,7 @@ export default async function WhoWeArePage({ params }: { params: Promise<{ local
                     unoptimized
                   />
                 </div>
-                <p className="text-[20px] font-light leading-[32px] text-gezairi-dark lg:text-[24px]">
+                <p className="whitespace-nowrap text-[20px] font-light leading-[32px] text-gezairi-dark lg:text-[24px] xl:text-[20px] min-[1400px]:text-[23px]">
                   {item}
                 </p>
               </div>
@@ -604,7 +604,7 @@ export default async function WhoWeArePage({ params }: { params: Promise<{ local
                     unoptimized
                   />
                 </div>
-                <p className="text-[20px] font-light leading-[32px] text-gezairi-dark lg:text-[24px]">
+                <p className="whitespace-nowrap text-[20px] font-light leading-[32px] text-gezairi-dark lg:text-[24px] xl:text-[20px] min-[1400px]:text-[23px]">
                   {item}
                 </p>
               </div>
