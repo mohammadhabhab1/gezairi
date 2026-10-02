@@ -148,7 +148,32 @@ function transformOffice(office: RegionalOffice): OfficeCardData {
   }
 }
 
+function ContactRow({ icon, value, href }: { icon: string; value: string; href: string }) {
+  const labelMatch = value.match(/^(.*?)\s*\((.*)\)$/)
+  const main = labelMatch ? labelMatch[1] : value
+  const label = labelMatch ? labelMatch[2] : ''
+  return (
+    <div className="flex gap-[10px] items-start">
+      <div className="w-[18px] h-[18px] md:w-[23px] md:h-[23px] relative shrink-0 mt-[1px] md:mt-[1px]">
+        <Image src={icon} alt="" aria-hidden="true" fill className="object-contain" unoptimized />
+      </div>
+      <a
+        href={href}
+        className="flex flex-col text-[14px] md:text-[20px] font-light text-gezairi-dark leading-[23px] hover:underline"
+      >
+        <span>{main}</span>
+        {label && (
+          <span className="text-[12px] md:text-[14px] leading-[18px] text-gezairi-blue">{label}</span>
+        )}
+      </a>
+    </div>
+  )
+}
+
 function OfficeCard({ office }: { office: OfficeCardData }) {
+  const tel = (v: string) => `tel:${v.replace(/\(.*?\)|\s/g, '')}`
+  const phoneIcon = '/images/gezairi/icons/phone-icon-blue.svg'
+  const faxIcon = '/images/gezairi/icons/fax-icon-blue.svg'
   return (
     <div className="flex flex-col gap-[15px] items-start w-full md:w-[268px]">
       <div className="flex flex-col gap-[10px] items-start w-full">
@@ -159,78 +184,18 @@ function OfficeCard({ office }: { office: OfficeCardData }) {
           {office.cities}
         </p>
       </div>
-      <div className="flex flex-col gap-[8px] items-start px-[5px] w-full">
-        {office.phone1 && (
-          <div className="flex gap-[10px] items-center">
-            <div className="w-[18px] h-[18px] md:w-[23px] md:h-[23px] relative shrink-0">
-              <Image
-                src="/images/gezairi/icons/phone-icon-blue.svg"
-                alt=""
-                aria-hidden="true"
-                fill
-                className="object-contain"
-                unoptimized
-              />
-            </div>
-            <a href={`tel:${office.phone1.replace(/\(.*?\)|\s/g, '')}`} className="text-[14px] md:text-[20px] font-light text-gezairi-dark hover:underline">
-              {office.phone1}
-            </a>
-          </div>
-        )}
+      <div className="flex flex-col gap-[10px] items-start px-[5px] w-full">
+        {office.phone1 && <ContactRow icon={phoneIcon} value={office.phone1} href={tel(office.phone1)} />}
         {office.phone2 && (
-          <div className="flex gap-[10px] items-center">
-            <div className="w-[18px] h-[18px] md:w-[23px] md:h-[23px] relative shrink-0">
-              <Image
-                src={
-                  office.phone2Kind === 'phone'
-                    ? '/images/gezairi/icons/phone-icon-blue.svg'
-                    : '/images/gezairi/icons/fax-icon-blue.svg'
-                }
-                alt=""
-                aria-hidden="true"
-                fill
-                className="object-contain"
-                unoptimized
-              />
-            </div>
-            <a href={`tel:${office.phone2.replace(/\(.*?\)|\s/g, '')}`} className="text-[14px] md:text-[20px] font-light text-gezairi-dark hover:underline">
-              {office.phone2}
-            </a>
-          </div>
+          <ContactRow
+            icon={office.phone2Kind === 'phone' ? phoneIcon : faxIcon}
+            value={office.phone2}
+            href={tel(office.phone2)}
+          />
         )}
-        {office.phone3 && (
-          <div className="flex gap-[10px] items-center">
-            <div className="w-[18px] h-[18px] md:w-[23px] md:h-[23px] relative shrink-0">
-              <Image
-                src="/images/gezairi/icons/phone-icon-blue.svg"
-                alt=""
-                aria-hidden="true"
-                fill
-                className="object-contain"
-                unoptimized
-              />
-            </div>
-            <a href={`tel:${office.phone3.replace(/\(.*?\)|\s/g, '')}`} className="text-[14px] md:text-[20px] font-light text-gezairi-dark hover:underline">
-              {office.phone3}
-            </a>
-          </div>
-        )}
+        {office.phone3 && <ContactRow icon={phoneIcon} value={office.phone3} href={tel(office.phone3)} />}
         {office.email && (
-          <div className="flex gap-[10px] items-center">
-            <div className="w-[18px] h-[18px] md:w-[23px] md:h-[23px] relative shrink-0">
-              <Image
-                src="/images/gezairi/icons/mail-icon-blue.svg"
-                alt=""
-                aria-hidden="true"
-                fill
-                className="object-contain"
-                unoptimized
-              />
-            </div>
-            <a href={`mailto:${office.email}`} className="text-[14px] md:text-[20px] font-light text-gezairi-dark hover:underline">
-              {office.email}
-            </a>
-          </div>
+          <ContactRow icon="/images/gezairi/icons/mail-icon-blue.svg" value={office.email} href={`mailto:${office.email}`} />
         )}
       </div>
     </div>
