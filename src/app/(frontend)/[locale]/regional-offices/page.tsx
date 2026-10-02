@@ -15,10 +15,11 @@ const fallbackOffices: OfficeCardData[] = [
   },
   {
     country: 'Iraq',
-    cities: 'Baghdad, Erbil and Basra',
+    cities: 'Baghdad, Basra and Erbil',
     phone1: '+964 77 044 382 62 (Baghdad)',
-    phone2: '+964 75 106 339 80 (Erbil)',
+    phone2: '+964 79 016 216 13 (Basra)',
     phone2Kind: 'phone',
+    phone3: '+964 75 106 339 80 (Erbil)',
     email: 'iraq@gezairi.com',
   },
   {
@@ -46,7 +47,7 @@ const fallbackOffices: OfficeCardData[] = [
   {
     country: 'Georgia',
     cities: 'Poti',
-    phone1: '+995 558 48 88 58',
+    phone1: '+995 599 05 78 66',
     phone2: '',
     email: 'georgia@gezairi.com',
   },
@@ -79,6 +80,7 @@ interface OfficeCardData {
   phone1: string
   phone2: string
   phone2Kind?: 'phone'
+  phone3?: string
   email: string
 }
 
@@ -193,6 +195,23 @@ function OfficeCard({ office }: { office: OfficeCardData }) {
             </div>
             <a href={`tel:${office.phone2.replace(/\(.*?\)|\s/g, '')}`} className="text-[14px] md:text-[20px] font-light text-gezairi-dark hover:underline">
               {office.phone2}
+            </a>
+          </div>
+        )}
+        {office.phone3 && (
+          <div className="flex gap-[10px] items-center">
+            <div className="w-[18px] h-[18px] md:w-[23px] md:h-[23px] relative shrink-0">
+              <Image
+                src="/images/gezairi/icons/phone-icon-blue.svg"
+                alt=""
+                aria-hidden="true"
+                fill
+                className="object-contain"
+                unoptimized
+              />
+            </div>
+            <a href={`tel:${office.phone3.replace(/\(.*?\)|\s/g, '')}`} className="text-[14px] md:text-[20px] font-light text-gezairi-dark hover:underline">
+              {office.phone3}
             </a>
           </div>
         )}

@@ -11,9 +11,9 @@ export const regionalOfficesData = [
   },
   {
     country: 'Iraq',
-    cities: 'Baghdad, Erbil and Basra',
+    cities: 'Baghdad, Basra and Erbil',
     phone1: '+964 77 044 382 62 (Baghdad)',
-    phone2: '+964 75 106 339 80 (Erbil)',
+    phone2: '+964 79 016 216 13 (Basra)',
     email: 'iraq@gezairi.com',
     latitude: 33.3152,
     longitude: 44.3661,
@@ -51,7 +51,7 @@ export const regionalOfficesData = [
   {
     country: 'Georgia',
     cities: 'Poti',
-    phone1: '+995 558 48 88 58',
+    phone1: '+995 599 05 78 66',
     email: 'georgia@gezairi.com',
     latitude: 42.1461,
     longitude: 41.6717,
