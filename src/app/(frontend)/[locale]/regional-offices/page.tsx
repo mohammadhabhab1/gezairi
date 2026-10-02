@@ -159,11 +159,13 @@ function ContactRow({ icon, value, href }: { icon: string; value: string; href: 
       </div>
       <a
         href={href}
-        className="flex flex-col text-[14px] md:text-[20px] font-light text-gezairi-dark leading-[23px] hover:underline"
+        className="text-[14px] md:text-[20px] font-light text-gezairi-dark leading-[23px] hover:underline"
       >
-        <span>{main}</span>
+        {main}
         {label && (
-          <span className="text-[12px] md:text-[14px] leading-[18px] text-gezairi-blue">{label}</span>
+          <span className="ms-[6px] text-[12px] md:text-[15px] text-gezairi-blue whitespace-nowrap">
+            ({label})
+          </span>
         )}
       </a>
     </div>
@@ -175,7 +177,7 @@ function OfficeCard({ office }: { office: OfficeCardData }) {
   const phoneIcon = '/images/gezairi/icons/phone-icon-blue.svg'
   const faxIcon = '/images/gezairi/icons/fax-icon-blue.svg'
   return (
-    <div className="flex flex-col gap-[15px] items-start w-full md:w-[268px]">
+    <div className="flex flex-col gap-[15px] items-start w-full">
       <div className="flex flex-col gap-[10px] items-start w-full">
         <p className="text-[28px] md:text-[36px] font-semibold text-gezairi-blue leading-[25px] tracking-[0.5625px] whitespace-nowrap">
           {office.country}
@@ -268,7 +270,7 @@ export default async function RegionalOfficesPage({
 
           {/* Office Cards Grid */}
           <div className="w-full max-w-[986px]">
-            <div className="grid grid-cols-1 gap-[40px] md:grid-cols-3 md:gap-x-[60px] md:gap-y-[50px] lg:gap-x-[100px] justify-items-start px-[10px]">
+            <div className="grid grid-cols-1 gap-[40px] md:grid-cols-3 md:gap-x-[24px] md:gap-y-[50px] lg:gap-x-[32px] justify-items-start px-[10px]">
               {offices.map((office, index) => (
                 <OfficeCard key={index} office={office} />
               ))}
