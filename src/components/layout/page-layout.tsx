@@ -215,41 +215,36 @@ export function PageLayout({ children, navItems: navItemsProp, footerData }: Pag
                         </div>
                       </a>
 
-                      {/* Contact: phone + email with stacked icons */}
-                      <div className="flex gap-[10px] items-start mt-[27px] md:mt-[31px]">
-                        <div className="flex flex-col items-center gap-[5px] shrink-0">
-                          <div className="w-[13px] h-[49px] relative">
-                            <Image
-                              src="/images/gezairi/icons/contact-icons-white.svg"
-                              alt=""
-                              aria-hidden="true"
-                              fill
-                              className="object-contain"
-                              unoptimized
-                            />
-                          </div>
-                          <div className="w-[13px] h-[10px] relative">
-                            <Image
-                              src="/images/gezairi/icons/mail-icon-white.svg"
-                              alt=""
-                              aria-hidden="true"
-                              fill
-                              className="object-contain"
-                              unoptimized
-                            />
-                          </div>
-                        </div>
-                        <div className="text-white text-[10px]">
-                          <p>
-                            <a href={`tel:${footer.phoneNumbers[0]?.number.replace(/\s/g, '')}`} className="no-underline leading-[13px] md:hidden">{footer.phoneNumbers[0]?.number}</a>
-                            <span className="hidden md:inline leading-[13px]">{footer.phoneNumbers[0]?.number}</span>
-                          </p>
-                          <p>
-                            <a href={`tel:${footer.phoneNumbers[1]?.number.replace(/\s/g, '')}`} className="no-underline leading-[19px] md:hidden">{footer.phoneNumbers[1]?.number}</a>
-                            <span className="hidden md:inline leading-[19px]">{footer.phoneNumbers[1]?.number}</span>
-                          </p>
-                          <p><a href={`mailto:${footer.email}`} className="no-underline leading-[17px]">{footer.email}</a></p>
-                        </div>
+                      {/* Contact rows: each icon sits beside its own line */}
+                      <div className="flex flex-col gap-[8px] mt-[27px] md:mt-[31px] text-white text-[10px]">
+                        {[
+                          { icon: 'phone-icon-blue', text: footer.phoneNumbers[0]?.number, kind: 'tel' },
+                          { icon: 'fax-icon-blue', text: footer.phoneNumbers[1]?.number, kind: 'tel' },
+                          { icon: 'mail-icon-white', text: footer.email, kind: 'mail' },
+                        ]
+                          .filter((row) => row.text)
+                          .map((row) => (
+                            <div key={row.icon} className="flex items-center gap-[10px]">
+                              <div className="w-[13px] h-[13px] relative shrink-0">
+                                <Image
+                                  src={`/images/gezairi/icons/${row.icon}.svg`}
+                                  alt=""
+                                  aria-hidden="true"
+                                  fill
+                                  className={`object-contain ${row.icon.endsWith('blue') ? 'brightness-0 invert' : ''}`}
+                                  unoptimized
+                                />
+                              </div>
+                              {row.kind === 'tel' ? (
+                                <>
+                                  <a href={`tel:${row.text!.replace(/\s/g, '')}`} className="no-underline leading-[15px] md:hidden">{row.text}</a>
+                                  <span className="hidden md:inline leading-[15px]">{row.text}</span>
+                                </>
+                              ) : (
+                                <a href={`mailto:${row.text}`} className="no-underline leading-[15px]">{row.text}</a>
+                              )}
+                            </div>
+                          ))}
                       </div>
                     </div>
                   </div>
