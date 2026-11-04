@@ -84,60 +84,6 @@ interface OfficeCardData {
   email: string
 }
 
-// Individual pin coordinates — adjust each one independently.
-// `left` and `top` are percentages of the map container (2348x1973 aspect,
-// matching the source map image at public/images/gezairi/map.png).
-// Each coordinate targets the visual center of that country's own
-// landmass on the map (not a specific city), verified to land on an
-// opaque (land) pixel with real clearance from any border/coastline by
-// sampling the source PNG's alpha channel.
-const turkeyPin = { left: '23.42%', top: '17.74%' }
-const cyprusPin = { left: '20.02%', top: '37.61%' }
-const lebanonPin = { left: '32.71%', top: '39.69%' }
-const jordanPin = { left: '36.80%', top: '48.15%' }
-const georgiaPin = { left: '46.42%', top: '6.69%' }
-const iraqPin = { left: '57.50%', top: '39.53%' }
-const saudiArabiaPin = { left: '48.98%', top: '68.42%' }
-const uaePin = { left: '95.06%', top: '71.77%' }
-const syriaPin = { left: '40.46%', top: '36.49%' }
-
-interface MapPinProps {
-  left: string
-  top: string
-  label: string
-}
-
-function MapPin({ left, top, label }: MapPinProps) {
-  return (
-    <button
-      type="button"
-      className="absolute -translate-x-1/2 z-10 group bg-transparent border-0 p-0"
-      style={{ left, top }}
-      aria-label={label}
-    >
-      {/* Shifted up by its own height so the pin's tip (not the icon box's
-          top-left corner) lands exactly on the target coordinate above —
-          the icon is rotated 180deg, which flips its content but not its
-          box, so without this the tip would render below the target. */}
-      <div className="-translate-y-full">
-        <div className="w-[10px] h-[14px] sm:w-[14px] sm:h-[19px] md:w-[20px] md:h-[27px] lg:w-[25px] lg:h-[33px] rotate-180 relative">
-          <Image
-            src="/images/gezairi/icons/location-marker-red.svg"
-            alt=""
-            aria-hidden="true"
-            fill
-            className="object-contain"
-            unoptimized
-          />
-        </div>
-      </div>
-      <span className="pointer-events-none absolute left-1/2 -translate-x-1/2 -top-6 md:-top-8 lg:-top-10 px-2 py-0.5 rounded bg-gezairi-blue text-white text-[10px] md:text-[12px] font-medium whitespace-nowrap opacity-0 group-hover:opacity-100 group-focus:opacity-100 group-active:opacity-100 transition-opacity">
-        {label}
-      </span>
-    </button>
-  )
-}
-
 function transformOffice(office: RegionalOffice): OfficeCardData {
   return {
     country: office.country,
@@ -247,26 +193,19 @@ export default async function RegionalOfficesPage({
         <SectionTitle>{t('globalReach')}</SectionTitle>
 
         <div className="flex flex-col gap-[40px] items-center w-full">
-          {/* World Map Image with Location Pins */}
-          <div className="relative w-full max-w-[900px] mx-auto aspect-[2348/1973]">
-            <Image
-              src="/images/gezairi/map.png"
-              alt="Gezairi regional offices map covering Turkey, Georgia, Cyprus, Lebanon, Syria, Jordan, Iraq, Saudi Arabia and the UAE"
-              fill
-              sizes="(max-width: 900px) 100vw, 900px"
-              className="object-contain"
-              priority
-            />
-            <MapPin {...turkeyPin} label="Turkey" />
-            <MapPin {...cyprusPin} label="Cyprus" />
-            <MapPin {...lebanonPin} label="Lebanon" />
-            <MapPin {...jordanPin} label="Jordan" />
-            <MapPin {...georgiaPin} label="Georgia" />
-            <MapPin {...iraqPin} label="Iraq" />
-            <MapPin {...saudiArabiaPin} label="Saudi Arabia" />
-            <MapPin {...uaePin} label="UAE" />
-            <MapPin {...syriaPin} label="Syria" />
-          </div>
+          {/* Animated regional offices map */}
+          <video
+            className="w-full max-w-[1100px] mx-auto aspect-video rounded-[20px] bg-[#f5f5f7]"
+            autoPlay
+            muted
+            loop
+            playsInline
+            preload="metadata"
+            poster="/videos/our-regional-offices-poster.jpg"
+            aria-label="Animated map of Gezairi's nine regional offices: Turkey, Georgia, Cyprus, Lebanon, Syria, Jordan, Iraq, Saudi Arabia and the UAE"
+          >
+            <source src="/videos/our-regional-offices.mp4" type="video/mp4" />
+          </video>
 
           {/* Office Cards Grid */}
           <div className="w-full max-w-[986px]">
