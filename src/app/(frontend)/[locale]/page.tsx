@@ -105,7 +105,7 @@ export default async function HomePage({ params }: { params: Promise<{ locale: s
 
           {/* Stats — full-width band beneath */}
           <div className="relative mt-12 md:mt-16 lg:mt-20">
-            {/* Order: Established in, Countries, Employees, Successful Shipments, Total Customers */}
+            {/* Order: Established in, Countries, Employees */}
             <HeroStats
               stat1Value={t('heroStat3Value')}
               stat1Label={t('heroStat3Label')}
@@ -113,10 +113,6 @@ export default async function HomePage({ params }: { params: Promise<{ locale: s
               stat2Label={t('heroStat4Label')}
               stat3Value={t('heroStat5Value')}
               stat3Label={t('heroStat5Label')}
-              stat4Value={t('heroStat1Value')}
-              stat4Label={t('heroStat1Label')}
-              stat5Value={t('heroStat2Value')}
-              stat5Label={t('heroStat2Label')}
             />
           </div>
         </div>
