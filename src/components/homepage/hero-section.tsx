@@ -1,5 +1,4 @@
 import Image from 'next/image'
-import { TrendingUp } from 'lucide-react'
 
 interface HeroSectionProps {
   containerImageUrl: string
@@ -60,24 +59,6 @@ export function HeroSection({ containerImageUrl }: HeroSectionProps) {
                 <span className="text-lg font-medium"> + </span>
               </p>
               <p className="text-lg font-medium text-black">Employees</p>
-            </div>
-          </div>
-
-          {/* Bottom stats */}
-          <div className="flex gap-16 mt-8">
-            <div className="flex flex-col">
-              <div className="flex items-center gap-2">
-                <span className="text-4xl font-medium text-black">1M</span>
-                <TrendingUp className="h-6 w-6 text-green-500" />
-              </div>
-              <span className="text-base text-black">Successful Shipments</span>
-            </div>
-            <div className="flex flex-col">
-              <div className="flex items-center gap-2">
-                <span className="text-4xl font-medium text-black">100K</span>
-                <TrendingUp className="h-6 w-6 text-green-500" />
-              </div>
-              <span className="text-base text-black">Total Customers</span>
             </div>
           </div>
         </div>

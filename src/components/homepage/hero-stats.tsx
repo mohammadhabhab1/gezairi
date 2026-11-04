@@ -10,10 +10,6 @@ interface HeroStatsProps {
   stat2Label: string
   stat3Value: string
   stat3Label: string
-  stat4Value: string
-  stat4Label: string
-  stat5Value: string
-  stat5Label: string
 }
 
 const ease = [0.25, 0.1, 0.25, 1] as [number, number, number, number]
@@ -71,10 +67,6 @@ export function HeroStats({
   stat2Label,
   stat3Value,
   stat3Label,
-  stat4Value,
-  stat4Label,
-  stat5Value,
-  stat5Label,
 }: HeroStatsProps) {
   return (
     <motion.div
@@ -88,8 +80,6 @@ export function HeroStats({
           <StatItem value={stat1Value} label={stat1Label} delay={0.85} />
           <StatItem value={stat2Value} label={stat2Label} delay={0.93} />
           <StatItem value={stat3Value} label={stat3Label} delay={1.01} />
-          <StatItem value={stat4Value} label={stat4Label} delay={1.09} />
-          <StatItem value={stat5Value} label={stat5Label} delay={1.17} />
         </div>
       </div>
     </motion.div>
