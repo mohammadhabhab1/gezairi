@@ -28,7 +28,7 @@ function StatItem({
       initial={{ opacity: 0, y: 20 }}
       animate={{ opacity: 1, y: 0 }}
       transition={{ duration: 0.6, delay, ease }}
-      className="group relative flex flex-col items-start gap-2 px-2 py-2 sm:px-5 md:px-6 lg:px-7"
+      className="group relative flex flex-col items-start gap-2 py-2"
     >
       {/* Value */}
       <div className="flex items-baseline gap-1.5">
@@ -36,7 +36,7 @@ function StatItem({
           value={value}
           className="font-bold leading-none text-gezairi-title"
           style={{
-            fontSize: 'clamp(28px, 4.4vw, 54px)',
+            fontSize: 'clamp(34px, 5.28vw, 65px)',
             letterSpacing: '-0.015em',
           }}
         />
@@ -49,12 +49,12 @@ function StatItem({
           style={{
             fontSize: 'clamp(11px, 1.05vw, 14px)',
             letterSpacing: '0.025em',
-            lineHeight: 1.35,
+            lineHeight: 1.2,
           }}
         >
           {label}
         </span>
-        <span className="absolute -bottom-1 left-0 h-[2px] w-6 bg-gezairi-gold transition-all duration-500 group-hover:w-12" />
+        <span className="absolute -bottom-0.5 left-0 h-[2px] w-6 bg-gezairi-gold transition-all duration-500 group-hover:w-12" />
       </div>
     </motion.div>
   )
@@ -76,7 +76,7 @@ export function HeroStats({
       className="relative w-full"
     >
       <div className="relative bg-transparent px-2 py-4 md:px-4 md:py-6">
-        <div className="relative grid grid-cols-3 gap-y-7 md:grid-cols-5 md:gap-y-0">
+        <div className="relative flex flex-wrap gap-x-10 gap-y-7 sm:gap-x-14 md:flex-nowrap md:gap-x-20 lg:gap-x-24">
           <StatItem value={stat1Value} label={stat1Label} delay={0.85} />
           <StatItem value={stat2Value} label={stat2Label} delay={0.93} />
           <StatItem value={stat3Value} label={stat3Label} delay={1.01} />
