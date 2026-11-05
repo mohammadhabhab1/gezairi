@@ -75,7 +75,7 @@ export function HeroStats({
       transition={{ duration: 0.7, ease, delay: 0.6 }}
       className="relative w-full"
     >
-      <div className="relative bg-transparent px-2 py-4 md:px-4 md:py-6">
+      <div className="relative bg-transparent px-2 md:px-4">
         <div className="relative flex flex-wrap gap-x-10 gap-y-7 sm:gap-x-14 md:flex-nowrap md:gap-x-20 lg:gap-x-24">
           <StatItem value={stat1Value} label={stat1Label} delay={0.85} />
           <StatItem value={stat2Value} label={stat2Label} delay={0.93} />

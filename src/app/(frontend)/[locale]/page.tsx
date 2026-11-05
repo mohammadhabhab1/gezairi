@@ -86,7 +86,7 @@ export default async function HomePage({ params }: { params: Promise<{ locale: s
         {/* Subtle dot pattern background */}
         <div className="hero-bg-grid pointer-events-none absolute inset-0" aria-hidden="true" />
 
-        <div className="relative mx-auto w-full max-w-[1340px] px-5 pb-8 pt-4 md:px-8 md:pb-12 md:pt-6 lg:px-12 lg:pb-16 lg:pt-8">
+        <div className="relative mx-auto w-full max-w-[1340px] px-5 pb-0 pt-4 md:px-8 md:pt-6 lg:px-12 lg:pt-8">
           <div className="grid grid-cols-1 items-center gap-10 lg:grid-cols-[minmax(0,1fr)_minmax(0,1.05fr)] lg:gap-10">
             {/* Left: Headline */}
             <HeroHeadline
@@ -104,7 +104,7 @@ export default async function HomePage({ params }: { params: Promise<{ locale: s
           </div>
 
           {/* Stats — full-width band beneath */}
-          <div className="relative mt-12 md:mt-16 lg:mt-20">
+          <div className="relative">
             {/* Order: Established in, Countries, Employees */}
             <HeroStats
               stat1Value={t('heroStat3Value')}
