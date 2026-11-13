@@ -218,11 +218,11 @@ function TimelineEventCard({ event, mobile }: { event: TimelineEventData; mobile
           {event.title}
         </h3>
         {event.status && (
-          <p className="text-[12px] font-light capitalize leading-[16px] text-black">
+          <p className="text-[13px] font-light capitalize leading-[17px] text-black">
             {event.status}
           </p>
         )}
-        <p className="w-[149px] text-[12px] font-light leading-[18px] text-black">
+        <p className="w-full text-[13px] font-light leading-[19px] text-black">
           <span className="font-semibold">Description: </span>
           {event.description}
         </p>
@@ -252,15 +252,15 @@ function TimelineEventImage({ event, mobile }: { event: TimelineEventData; mobil
   const imgSrc = event.image || '/images/gezairi/timeline-placeholder.png'
   if (mobile) {
     return (
-      <div className="relative h-[112px] w-[150px]">
-        <Image src={imgSrc} alt={event.title} fill className="object-contain" />
+      <div className="relative h-[112px] w-full max-w-[150px]">
+        <Image src={imgSrc} alt={event.title} fill sizes="150px" className="object-contain" />
       </div>
     )
   }
   return (
     <div className="w-full max-w-[430px] overflow-hidden rounded-[10px]">
       <div className="relative flex h-[250px] w-full items-center justify-center">
-        <Image src={imgSrc} alt={event.title} fill className="object-contain" />
+        <Image src={imgSrc} alt={event.title} fill sizes="430px" className="object-contain" />
       </div>
     </div>
   )
@@ -320,7 +320,7 @@ function DesktopTimeline({ events }: { events: TimelineEventData[] }) {
 
 function MobileTimeline({ events }: { events: TimelineEventData[] }) {
   return (
-    <div className="relative mx-auto w-[350px] px-[5px]">
+    <div className="relative mx-auto w-full max-w-[350px] px-[5px]">
       {/* Continuous center line */}
       <div className="absolute bottom-0 left-1/2 top-0 w-[4px] -translate-x-1/2 bg-[#d6d6d6]" />
 
@@ -452,20 +452,20 @@ export default async function WhoWeArePage({ params }: { params: Promise<{ local
       </section>
 
       {/* Intro Section */}
-      <section className="w-full max-w-[1330px] px-[5px] md:px-[10px]">
-        <div className="px-[10px] md:px-[10px]">
-          <p className="text-justify text-gezairi-dark">
-            <span className="text-[36px] font-bold leading-[32px] text-[#9B7C4B] lg:text-[48px]">
+      <section className="w-full max-w-[1330px] px-[10px]">
+        <div className="px-0 md:px-[10px]">
+          <p className="text-left text-gezairi-dark md:text-justify">
+            <span className="text-[30px] font-bold leading-[34px] text-[#9B7C4B] md:text-[36px] md:leading-[32px] lg:text-[48px]">
               {highlightedIntro}
             </span>{' '}
-            <span className="text-[20px] font-light leading-[28px] lg:text-[24px] lg:leading-[32px]">
+            <span className="text-[17px] font-light leading-[26px] md:text-[20px] md:leading-[28px] lg:text-[24px] lg:leading-[32px]">
               {introText}
             </span>
           </p>
           {additionalParagraphs.map((paragraph, index) => (
             <p
               key={index}
-              className="mt-0 text-justify text-[20px] font-light leading-[28px] text-gezairi-dark lg:text-[24px] lg:leading-[32px]"
+              className="mt-3 text-left text-[17px] font-light leading-[26px] text-gezairi-dark md:mt-0 md:text-justify md:text-[20px] md:leading-[28px] lg:text-[24px] lg:leading-[32px]"
             >
               {paragraph}
             </p>
@@ -474,36 +474,39 @@ export default async function WhoWeArePage({ params }: { params: Promise<{ local
       </section>
 
       {/* Stats Bar */}
-      <section className="flex h-auto w-full max-w-[1380px] flex-col items-stretch justify-between gap-[14px] bg-gezairi-blue px-5 py-5 md:flex-row md:items-center md:gap-0 md:px-[20px] md:py-4 lg:h-[165px] lg:py-0">
-        {/* Mobile: reorder to icons first, then numbers */}
-        {[...stats]
-          .sort((a, b) => {
-            if (a.type === 'icon' && b.type === 'number') return -1
-            if (a.type === 'number' && b.type === 'icon') return 1
-            return 0
-          })
-          .map((stat, index) => (
-            <div key={`mobile-${index}`} className="flex items-center gap-3 md:hidden">
-              <div className="flex h-[42px] w-[58px] shrink-0 items-center justify-center">
-                {stat.type === 'icon' ? (
-                  <div className="relative h-[36px] w-[36px]">
-                    <Image
-                      src={stat.icon || '/images/gezairi/icons/location-icon.svg'}
-                      alt=""
-                      fill
-                      className="object-contain"
-                      unoptimized
-                    />
-                  </div>
-                ) : (
-                  <span className="text-[34px] font-semibold leading-none text-[#9B7C4B]">
-                    {stat.value}
-                  </span>
-                )}
+      <section className="flex h-auto w-full max-w-[1380px] flex-col items-stretch justify-between gap-[14px] bg-gezairi-blue px-5 py-6 md:flex-row md:items-center md:gap-0 md:px-[20px] md:py-4 lg:h-[165px] lg:py-0">
+        {/* Mobile: 2×2 grid, icons first then numbers; each item stacks its icon/number above the label, centered */}
+        <div className="grid grid-cols-2 gap-x-5 gap-y-6 md:hidden">
+          {[...stats]
+            .sort((a, b) => {
+              if (a.type === 'icon' && b.type === 'number') return -1
+              if (a.type === 'number' && b.type === 'icon') return 1
+              return 0
+            })
+            .map((stat, index) => (
+              <div key={`mobile-${index}`} className="flex flex-col items-center gap-2 text-center">
+                {/* Shared top slot so icons and numbers sit on the same line */}
+                <div className="flex h-[40px] items-end">
+                  {stat.type === 'icon' ? (
+                    <div className="relative h-[36px] w-[36px]">
+                      <Image
+                        src={stat.icon || '/images/gezairi/icons/location-icon.svg'}
+                        alt=""
+                        fill
+                        className="object-contain"
+                        unoptimized
+                      />
+                    </div>
+                  ) : (
+                    <span dir="ltr" className="text-[36px] font-semibold leading-none text-[#9B7C4B]">
+                      {stat.value}
+                    </span>
+                  )}
+                </div>
+                <p className="text-[14px] font-semibold leading-[19px] text-white">{stat.label}</p>
               </div>
-              <p className="flex-1 text-[14px] font-semibold leading-[18px] text-white">{stat.label}</p>
-            </div>
-          ))}
+            ))}
+        </div>
         {/* Desktop: original order */}
         {stats.map((stat, index) => (
           <div key={`desktop-${index}`} className="hidden items-center gap-[13px] md:flex">
@@ -518,7 +521,7 @@ export default async function WhoWeArePage({ params }: { params: Promise<{ local
                 />
               </div>
             ) : (
-              <span className="shrink-0 text-[48px] font-semibold leading-[72px] text-[#9B7C4B] lg:text-[64px]">
+              <span dir="ltr" className="shrink-0 text-[48px] font-semibold leading-[72px] text-[#9B7C4B] lg:text-[64px]">
                 {stat.value}
               </span>
             )}
@@ -533,9 +536,9 @@ export default async function WhoWeArePage({ params }: { params: Promise<{ local
       </section>
 
       {/* Founder's Vision Section */}
-      <section className="flex w-full max-w-[1330px] flex-col gap-[20px] px-[5px] md:px-[10px]">
+      <section className="flex w-full max-w-[1330px] flex-col gap-[20px] px-[10px]">
         <SectionTitle>{visionTitle}</SectionTitle>
-        <div className="flex flex-col gap-[14px] md:gap-[20px] px-[5px] md:px-[10px]">
+        <div className="flex flex-col gap-[14px] md:gap-[20px] px-0 md:px-[10px]">
           {visionParagraphs.map((paragraph, index) => (
             <p
               key={index}
@@ -548,13 +551,13 @@ export default async function WhoWeArePage({ params }: { params: Promise<{ local
       </section>
 
       {/* What Differentiates Us Section */}
-      <section className="flex w-full max-w-[1330px] flex-col gap-[15px] px-[5px] md:gap-[30px] md:px-[10px]">
+      <section className="flex w-full max-w-[1330px] flex-col gap-[15px] px-[10px] md:gap-[30px]">
         <SectionTitle>{differentiatorsTitle}</SectionTitle>
         {/* Mobile: single column with all items */}
-        <div className="flex flex-col gap-[5px] px-[5px] md:hidden">
+        <div className="flex flex-col gap-[12px] md:hidden">
           {[...diffLeft, ...diffRight].map((item, index) => (
             <div key={index} className="flex items-start gap-[10px]">
-              <div className="relative mt-[7px] h-[25px] w-[25px] shrink-0">
+              <div className="relative mt-[1px] h-[22px] w-[22px] shrink-0">
                 <Image
                   src="/images/gezairi/icons/check-icon.svg"
                   alt=""
@@ -564,7 +567,7 @@ export default async function WhoWeArePage({ params }: { params: Promise<{ local
                   unoptimized
                 />
               </div>
-              <p className="w-[306px] text-[20px] font-light leading-[24px] text-gezairi-dark">
+              <p className="flex-1 text-[17px] font-light leading-[24px] text-gezairi-dark">
                 {item}
               </p>
             </div>

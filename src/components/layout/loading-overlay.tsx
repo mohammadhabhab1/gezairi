@@ -69,8 +69,8 @@ export function LoadingOverlay() {
       <Image
         src="/images/gezairi/logos/logo.png"
         alt="Loading..."
-        width={150}
-        height={150}
+        width={169}
+        height={80}
         priority
         style={{
           position: 'absolute',

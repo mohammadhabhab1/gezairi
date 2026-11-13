@@ -121,11 +121,13 @@ export default async function HomePage({ params }: { params: Promise<{ locale: s
       {/* 80 Years Section */}
       <section className="w-full max-w-[1348px] px-[10px] py-0 md:px-[20px]">
         <FadeIn>
-          <div className="img-zoom relative h-[196px] w-full overflow-hidden rounded-[20px] md:h-[400px] lg:h-[534px]">
+          {/* Aspect locked to the artwork (1610×684) so the baked-in lettering is never cropped */}
+          <div className="img-zoom relative aspect-[1610/684] w-full overflow-hidden rounded-[20px]">
             <Image
               src="/images/gezairi/heroes/eighty.png"
               alt={t('eightyYearsAlt')}
               fill
+              sizes="(max-width: 1388px) 100vw, 1348px"
               className="object-cover"
               loading="lazy"
             />

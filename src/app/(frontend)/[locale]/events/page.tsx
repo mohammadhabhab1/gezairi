@@ -81,20 +81,22 @@ export default async function EventsPage({
     <PageLayout locale={typedLocale}>
       {/* Hero Section */}
       <section className="w-full px-[10px] md:px-5 pt-0">
-        <div className="relative w-full max-w-[1348px] h-[318px] md:h-[350px] lg:h-[486px] rounded-[20px] overflow-hidden">
+        <div className="relative w-full max-w-[1348px] overflow-hidden rounded-[20px] bg-gezairi-blue aspect-[16/9] md:aspect-auto md:h-[350px] lg:h-[486px]">
           <Image
             src="/images/gezairi/heroes/newcover.jpg"
             alt="Our Events"
             fill
-            className="object-cover"
+            sizes="(max-width: 768px) 100vw, 1348px"
+            className="object-contain md:object-cover"
             priority
           />
-          {/* 80 Years Emblem */}
-          <div className="absolute top-[10px] end-0 w-[126px] h-[72px] md:top-0 md:w-[230px] md:h-[132px] lg:w-[345px] lg:h-[198px]">
+          {/* 80 Years Emblem — hidden on phones, where it would sit on top of the cover's own tagline */}
+          <div className="absolute hidden md:block md:top-0 md:end-0 md:w-[230px] md:h-[132px] lg:w-[345px] lg:h-[198px]">
             <Image
               src="/images/gezairi/heroes/who-we-are-emblem.png"
               alt="80 Years of Excellence"
               fill
+              sizes="(max-width: 1024px) 230px, 345px"
               className="object-contain"
             />
           </div>
@@ -105,7 +107,7 @@ export default async function EventsPage({
       </section>
 
       {/* Mobile/Tablet Timeline - simple card list */}
-      <section className="lg:hidden w-full px-4 flex flex-col gap-8">
+      <section className="xl:hidden w-full px-4 flex flex-col gap-8">
         {events.map((event) => (
           <div key={event.id} className="flex flex-col gap-4">
             <div className="w-full h-[200px] md:h-[280px] relative rounded-[10px] overflow-hidden">
@@ -113,6 +115,7 @@ export default async function EventsPage({
                 src={event.image}
                 alt={event.title}
                 fill
+                sizes="(max-width: 1280px) 100vw, 495px"
                 className="object-cover"
                 loading="lazy"
               />
@@ -137,7 +140,8 @@ export default async function EventsPage({
       </section>
 
       {/* Desktop Timeline - preserved absolute layout */}
-      <section className="hidden lg:block relative w-[1140px] pb-[40px]">
+      {/* Fixed 1140px timeline: only shown once the viewport can fit it (xl = 1280px) */}
+      <section className="hidden xl:block relative w-[1140px] pb-[40px]">
         {/* Top gray circle */}
         <div className="absolute left-[564px] top-0 w-[12px] h-[12px] bg-[#d6d6d6] rounded-full" aria-hidden="true" />
 
@@ -199,6 +203,7 @@ export default async function EventsPage({
                           src={event.image}
                           alt={event.title}
                           fill
+                          sizes="495px"
                           className="object-cover"
                           loading="lazy"
                         />
@@ -217,6 +222,7 @@ export default async function EventsPage({
                           src={event.image}
                           alt={event.title}
                           fill
+                          sizes="495px"
                           className="object-cover rounded-[10px]"
                           loading="lazy"
                         />

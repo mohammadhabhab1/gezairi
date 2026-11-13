@@ -22,7 +22,7 @@ export function EventsTimeline({ events, heroImageUrl: _heroImageUrl }: EventsTi
   return (
     <>
       {/* Mobile/Tablet - simple card list */}
-      <section className="lg:hidden w-full px-4 flex flex-col gap-8">
+      <section className="xl:hidden w-full px-4 flex flex-col gap-8">
         {events.map((event, index) => (
           <div key={index} className="flex flex-col gap-4">
             {event.imageUrl && (
@@ -58,7 +58,8 @@ export function EventsTimeline({ events, heroImageUrl: _heroImageUrl }: EventsTi
       </section>
 
       {/* Desktop - preserved absolute layout */}
-      <section className="hidden lg:block relative w-[1140px] pb-[40px]">
+      {/* Fixed 1140px timeline: only shown once the viewport can fit it (xl = 1280px) */}
+      <section className="hidden xl:block relative w-[1140px] pb-[40px]">
         {/* Top gray circle */}
         <div className="absolute left-[564px] top-0 w-[12px] h-[12px] bg-[#d6d6d6] rounded-full" />
 

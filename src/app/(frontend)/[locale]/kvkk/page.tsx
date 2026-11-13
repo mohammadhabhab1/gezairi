@@ -232,6 +232,7 @@ export default async function KVKKPage({
               src="/images/gezairi/heroes/who-we-are-emblem.png"
               alt="80 Years of Excellence"
               fill
+              sizes="(max-width: 1024px) 230px, 345px"
               className="object-contain"
             />
           </div>

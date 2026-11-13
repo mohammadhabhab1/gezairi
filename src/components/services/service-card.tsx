@@ -35,12 +35,12 @@ export function ServiceCard({
     >
       <Link
         href={`/${locale}/services/${service.slug}`}
-        className="group flex h-full min-h-[216px] w-full cursor-pointer flex-col items-start justify-start bg-white px-[18px] py-[20px] transition-shadow focus:outline-none focus:ring-2 focus:ring-[#9B7C4B]"
+        className="group flex h-full min-h-[216px] w-full cursor-pointer flex-col items-center justify-start bg-white text-center px-[18px] py-[20px] transition-shadow focus:outline-none focus:ring-2 focus:ring-[#9B7C4B]"
       >
-        <div className="flex w-full flex-col items-start gap-[20px]">
-          <div className="flex w-full flex-col items-start gap-[7px]">
+        <div className="flex w-full flex-col items-center gap-[20px]">
+          <div className="flex w-full flex-col items-center gap-[7px]">
             <div className="relative h-[65px] w-[65px] transition-transform duration-300 group-hover:scale-110">
-              <Image src={service.icon} alt={service.title} fill className="object-contain" />
+              <Image src={service.icon} alt={service.title} fill sizes="65px" className="object-contain" />
             </div>
             <p className="text-[20px] font-semibold leading-[25px] tracking-[0.31px] text-gezairi-dark transition-colors group-hover:text-[#9B7C4B]">
               {service.title}

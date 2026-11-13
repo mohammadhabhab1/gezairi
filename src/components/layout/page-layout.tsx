@@ -97,7 +97,7 @@ export function PageLayout({ children, navItems: navItemsProp, footerData }: Pag
 
   return (
     <>
-    <main className="min-h-screen bg-gezairi-page-bg px-0 md:px-5 pt-[20px] md:pt-5 pb-0">
+    <main className="min-h-screen overflow-x-clip bg-gezairi-page-bg px-0 md:px-5 pt-[20px] md:pt-5 pb-0">
       <a
         href="#main-content"
         className="sr-only focus:not-sr-only focus:absolute focus:z-50 focus:top-4 focus:left-4 focus:bg-white focus:px-4 focus:py-2 focus:text-gezairi-blue focus:rounded-md focus:shadow-lg"
@@ -106,25 +106,26 @@ export function PageLayout({ children, navItems: navItemsProp, footerData }: Pag
       </a>
       <div className="bg-gezairi-light rounded-t-[20px] max-w-[1380px] mx-auto pb-0 md:pb-5 px-[5px] md:px-0">
         {/* Navigation */}
-        <nav className="flex items-center justify-between gap-4 lg:gap-[68px] px-[10px] md:px-5 py-[5px] md:py-2.5">
+        <nav className="flex items-center justify-between gap-4 lg:gap-6 xl:gap-[68px] px-[10px] md:px-5 py-[5px] md:py-2.5">
           <Link href="/" className="shrink-0">
             <Image
               src="/images/gezairi/logos/logo.png"
               alt="Gezairi Logo"
               width={169}
               height={80}
-              className="h-[47px] w-[100px] md:h-[65px] md:w-auto lg:h-[80px] object-contain"
+              className="h-[47px] md:h-[65px] lg:h-[80px] object-contain"
+              style={{ width: 'auto' }}
             />
           </Link>
 
-          <div className="hidden lg:flex items-center w-[872px]">
+          <div className="hidden lg:flex items-center flex-1 min-w-0 max-w-[872px]">
             <ul className="flex flex-wrap items-center justify-center w-full">
               {navItems.map((item) => (
                 <li key={item.href}>
                   {item.href.startsWith('#') ? (
                     <a
                       href={item.href}
-                      className="block px-[15px] py-[15px] text-[18px] leading-[20px] transition-colors focus-visible:ring-2 focus-visible:ring-gezairi-blue focus-visible:ring-offset-2 rounded-sm text-gezairi-gray hover:text-gezairi-blue"
+                      className="block px-[10px] xl:px-[15px] py-[15px] text-[16px] xl:text-[18px] leading-[20px] whitespace-nowrap transition-colors focus-visible:ring-2 focus-visible:ring-gezairi-blue focus-visible:ring-offset-2 rounded-sm text-gezairi-gray hover:text-gezairi-blue"
                     >
                       {item.label}
                     </a>
@@ -132,7 +133,7 @@ export function PageLayout({ children, navItems: navItemsProp, footerData }: Pag
                     <Link
                       href={item.href as '/'}
                       aria-current={pathname === item.href ? 'page' : undefined}
-                      className={`block px-[15px] py-[15px] text-[18px] leading-[20px] transition-colors focus-visible:ring-2 focus-visible:ring-gezairi-blue focus-visible:ring-offset-2 rounded-sm ${
+                      className={`block px-[10px] xl:px-[15px] py-[15px] text-[16px] xl:text-[18px] leading-[20px] whitespace-nowrap transition-colors focus-visible:ring-2 focus-visible:ring-gezairi-blue focus-visible:ring-offset-2 rounded-sm ${
                         pathname === item.href
                           ? 'text-gezairi-blue'
                           : 'text-gezairi-gray hover:text-gezairi-blue'
@@ -159,7 +160,7 @@ export function PageLayout({ children, navItems: navItemsProp, footerData }: Pag
 
         {/* Footer */}
         <div className="flex flex-col items-center w-full mt-[35px] md:mt-8 lg:mt-[80px] px-0">
-          <footer id="footer" className="w-full max-w-none md:max-w-[1348px] min-h-[657px] md:min-h-[400px] lg:h-[561px] relative mx-auto rounded-none md:rounded-[15px] overflow-hidden">
+          <footer id="footer" className="w-full max-w-none md:max-w-[1348px] md:min-h-[400px] lg:h-[561px] relative mx-auto rounded-none md:rounded-[15px] overflow-hidden">
             <Image
               src="/images/gezairi/heroes/footer-bg.jpg"
 
@@ -168,7 +169,129 @@ export function PageLayout({ children, navItems: navItemsProp, footerData }: Pag
               className="object-cover object-[70%_50%] md:object-[85%_25%]"
             />
 
-            <div className="relative z-10 h-full flex flex-col justify-between px-[29px] py-5 md:px-[34px] md:py-[20px]">
+            {/* Darkening layer so text stays readable over the container photo on phones */}
+            <div className="absolute inset-0 bg-gezairi-blue/60 md:hidden" aria-hidden="true" />
+
+            {/* Phones: one left edge, one icon column, clear groups */}
+            <div className="relative z-10 flex flex-col px-6 pb-6 pt-7 text-white md:hidden">
+              <div className="relative h-[56px] w-[150px]">
+                <Image
+                  src="/images/gezairi/logos/logo-white.png"
+                  alt="Gezairi Logo"
+                  fill
+                  sizes="150px"
+                  className="object-contain object-left"
+                />
+              </div>
+              <p className="mt-3 text-[15px] leading-[22px] text-white/90">{footer.tagline}</p>
+
+              <div className="mt-6 border-t border-white/15 pt-6">
+                <h2 className="text-[11px] font-semibold uppercase tracking-[0.18em] text-gezairi-gold">
+                  {footer.officeTitle}
+                </h2>
+                <a
+                  href="https://www.google.com/maps/place/Gezairi/data=!4m2!3m1!1s0x0:0x9f30f914b61c9192?sa=X&ved=1t:2428&ictx=111"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  aria-label={`${footer.officeTitle} — ${footer.city}, opens Google Maps`}
+                  className="mt-3 block rounded-md focus:outline-none focus-visible:ring-2 focus-visible:ring-gezairi-gold"
+                >
+                  <span className="flex items-center gap-3">
+                    <MapPin className="h-4 w-4 shrink-0" aria-hidden="true" />
+                    <span className="text-[15px] font-semibold leading-[22px]">{footer.city}</span>
+                  </span>
+                  <span className="mt-1 block ps-7 text-[13px] leading-[20px] text-white/80">
+                    {footer.addressLines.map((line, i) => (
+                      <span key={i} className={`block ${line.bold ? 'font-semibold text-white' : ''}`}>
+                        {line.line}
+                      </span>
+                    ))}
+                  </span>
+                </a>
+                <ul className="mt-4 space-y-1">
+                  {[
+                    { icon: 'phone-icon-blue', text: footer.phoneNumbers[0]?.number, scheme: 'tel' },
+                    { icon: 'fax-icon-blue', text: footer.phoneNumbers[1]?.number, scheme: 'tel' },
+                    { icon: 'mail-icon-white', text: footer.email, scheme: 'mailto' },
+                  ]
+                    .filter((row) => row.text)
+                    .map((row) => (
+                      <li key={row.icon}>
+                        <a
+                          href={`${row.scheme}:${row.scheme === 'tel' ? row.text!.replace(/\s/g, '') : row.text}`}
+                          className="flex items-center gap-3 py-1 text-[15px] leading-[22px]"
+                        >
+                          <span className="relative h-4 w-4 shrink-0">
+                            <Image
+                              src={`/images/gezairi/icons/${row.icon}.svg`}
+                              alt=""
+                              aria-hidden="true"
+                              fill
+                              className={`object-contain ${row.icon.endsWith('blue') ? 'brightness-0 invert' : ''}`}
+                              unoptimized
+                            />
+                          </span>
+                          <span dir="ltr">{row.text}</span>
+                        </a>
+                      </li>
+                    ))}
+                </ul>
+              </div>
+
+              <div className="mt-6 grid grid-cols-2 gap-x-6 border-t border-white/15 pt-5">
+                <ul>
+                  {footer.navLinks.map((link, i) => (
+                    <li key={i}>
+                      <Link href={link.url as '/'} className="block py-1.5 text-[15px] leading-[22px] hover:underline">
+                        {link.label}
+                      </Link>
+                    </li>
+                  ))}
+                </ul>
+                <ul>
+                  {footer.socialLinks.map((link, i) => (
+                    <li key={i}>
+                      <a
+                        href={link.url}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="block py-1.5 text-[15px] leading-[22px] hover:underline"
+                      >
+                        {link.label}
+                      </a>
+                    </li>
+                  ))}
+                </ul>
+              </div>
+
+              <div className="mt-5 flex items-center justify-between gap-4 border-t border-white/15 pt-4">
+                <div className="flex flex-wrap gap-x-5 gap-y-1 text-[13px] font-semibold leading-[22px]">
+                  {footer.legalLinks.map((link, i) => (
+                    <Link key={i} href={link.url as '/'} className="py-1 hover:underline">
+                      {link.label}
+                    </Link>
+                  ))}
+                </div>
+                <button
+                  type="button"
+                  aria-label={t('footer.scrollToTop')}
+                  title={t('footer.scrollToTop')}
+                  onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}
+                  className="flex h-10 w-10 shrink-0 items-center justify-center rounded-full bg-white/15 transition-colors hover:bg-white/25"
+                >
+                  <Image
+                    src="/images/gezairi/icons/arrow-up-footer.svg"
+                    alt=""
+                    width={40}
+                    height={25}
+                    className="h-[14px] w-[22px]"
+                    unoptimized
+                  />
+                </button>
+              </div>
+            </div>
+
+            <div className="relative z-10 h-full hidden md:flex flex-col justify-between px-[29px] py-5 md:px-[34px] md:py-[20px]">
               {/* Top section */}
               <div className="flex flex-col lg:flex-row justify-between gap-6 md:gap-8">
                 {/* Left: Logo, tagline, address + contact side by side */}
@@ -178,6 +301,7 @@ export function PageLayout({ children, navItems: navItemsProp, footerData }: Pag
                       src="/images/gezairi/logos/logo-white.png"
                       alt="Gezairi Logo"
                       fill
+                      sizes="(max-width: 768px) 180px, (max-width: 1024px) 220px, 255px"
                       className="object-contain object-left"
                     />
                   </div>
@@ -186,12 +310,12 @@ export function PageLayout({ children, navItems: navItemsProp, footerData }: Pag
                   </p>
 
                   <div className="mt-4 md:mt-6 ml-[13px] md:ml-[28px] lg:ml-[36px]">
-                    <h2 className="text-gezairi-light text-[12px] md:text-[14.2px] mb-3 md:mb-4 leading-[18px] tracking-[-0.28px] md:tracking-[-0.33px]">
+                    <h2 className="text-gezairi-light text-[13px] md:text-[14.2px] mb-3 md:mb-4 leading-[18px] tracking-[-0.28px] md:tracking-[-0.33px]">
                       {footer.officeTitle}
                     </h2>
 
                     {/* Address + Contact side by side */}
-                    <div className="flex flex-row gap-[30px] md:gap-[40px] lg:gap-[60px]">
+                    <div className="flex flex-col gap-4 sm:flex-row sm:gap-[30px] md:gap-[40px] lg:gap-[60px]">
                       {/* Address — hover/click to open Google Maps */}
                       <a
                         href="https://www.google.com/maps/place/Gezairi/data=!4m2!3m1!1s0x0:0x9f30f914b61c9192?sa=X&ved=1t:2428&ictx=111"
@@ -202,11 +326,11 @@ export function PageLayout({ children, navItems: navItemsProp, footerData }: Pag
                       >
                         <div className="flex items-start gap-2 text-white">
                           <MapPin className="w-[9px] h-[12px] mt-[2px] shrink-0 transition-transform duration-200 group-hover:-translate-y-[1px] group-hover:text-gezairi-gold" />
-                          <p className="text-[12px] md:text-[13px] leading-[15px] font-semibold transition-colors duration-200 group-hover:text-gezairi-gold group-hover:underline underline-offset-2">
+                          <p className="text-[14px] md:text-[13px] leading-[17px] md:leading-[15px] font-semibold transition-colors duration-200 group-hover:text-gezairi-gold group-hover:underline underline-offset-2">
                             {footer.city}
                           </p>
                         </div>
-                        <div className="ml-[17px] mt-3 md:mt-4 text-white text-[10px] md:text-[11px] space-y-1 leading-[13px] transition-opacity duration-200 group-hover:opacity-95">
+                        <div className="ml-[17px] mt-3 md:mt-4 text-white text-[12px] md:text-[11px] space-y-1 leading-[16px] md:leading-[13px] transition-opacity duration-200 group-hover:opacity-95">
                           {footer.addressLines.map((line, i) => (
                             <p key={i} className={line.bold ? 'font-semibold' : ''}>
                               {line.line}
@@ -216,7 +340,7 @@ export function PageLayout({ children, navItems: navItemsProp, footerData }: Pag
                       </a>
 
                       {/* Contact rows: each icon sits beside its own line */}
-                      <div className="flex flex-col gap-[8px] mt-[27px] md:mt-[31px] text-white text-[10px]">
+                      <div className="flex flex-col gap-[10px] md:gap-[8px] sm:mt-[27px] md:mt-[31px] text-white text-[13px] md:text-[10px]">
                         {[
                           { icon: 'phone-icon-blue', text: footer.phoneNumbers[0]?.number, kind: 'tel' },
                           { icon: 'fax-icon-blue', text: footer.phoneNumbers[1]?.number, kind: 'tel' },
@@ -251,13 +375,13 @@ export function PageLayout({ children, navItems: navItemsProp, footerData }: Pag
                 </div>
 
                 {/* Right column: Navigation + Social */}
-                <div className="flex flex-col gap-6 md:flex-row md:gap-12 lg:gap-[80px] xl:gap-[120px] ml-[28px] md:ml-0 lg:pt-[30px]">
+                <div className="flex flex-row gap-12 lg:gap-[80px] xl:gap-[120px] ml-[13px] md:ml-0 lg:pt-[30px]">
                   <div className="space-y-0">
                     {footer.navLinks.map((link, i) => (
                       <Link
                         key={i}
                         href={link.url as '/'}
-                        className="block text-white text-[12px] md:text-[17.3px] hover:underline leading-[20px] md:leading-[31px]"
+                        className="block text-white text-[15px] md:text-[17.3px] hover:underline leading-[32px] md:leading-[31px]"
                       >
                         {link.label}
                       </Link>
@@ -271,7 +395,7 @@ export function PageLayout({ children, navItems: navItemsProp, footerData }: Pag
                         href={link.url}
                         target="_blank"
                         rel="noopener noreferrer"
-                        className="block text-white text-[12px] md:text-[17.3px] hover:underline leading-[20px] md:leading-[31px]"
+                        className="block text-white text-[15px] md:text-[17.3px] hover:underline leading-[32px] md:leading-[31px]"
                       >
                         {link.label}
                       </a>
@@ -282,7 +406,7 @@ export function PageLayout({ children, navItems: navItemsProp, footerData }: Pag
 
               {/* Bottom section: Legal links + scroll to top */}
               <div className="flex items-end justify-between mt-6 lg:mt-0">
-                <div className="flex flex-col gap-[2px] md:flex-row md:gap-0 text-white text-[12px] md:text-[17.3px] font-semibold leading-[23px] ml-[30px] md:ml-0">
+                <div className="flex flex-col gap-1 md:flex-row md:gap-0 text-white text-[14px] md:text-[17.3px] font-semibold leading-[28px] md:leading-[23px] ml-[13px] md:ml-0">
                   {footer.legalLinks.map((link, i) => (
                     <Link
                       key={i}
@@ -302,7 +426,7 @@ export function PageLayout({ children, navItems: navItemsProp, footerData }: Pag
                       window.scrollTo({ top: 0, behavior: 'smooth' })
                     }
                   }}
-                  className="shrink-0"
+                  className="shrink-0 p-2 -m-2"
                 >
                   <Image
                     src="/images/gezairi/icons/arrow-up-footer.svg"
