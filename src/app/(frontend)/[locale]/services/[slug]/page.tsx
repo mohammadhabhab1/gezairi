@@ -267,16 +267,16 @@ export default async function ServicePage({ params }: ServicePageProps) {
     <PageLayout locale={typedLocale}>
       {/* Hero Section */}
       <section className="w-full px-[10px] md:px-5 pt-0">
-        <div className="relative w-full max-w-[1348px] h-[318px] md:h-[350px] lg:h-[486px] rounded-[20px] overflow-hidden">
+        {/* Same hero box as the Services page: full 16:9 artwork on phones, cropped banner from md up */}
+        <div className="relative w-full max-w-[1348px] overflow-hidden rounded-[20px] bg-gezairi-blue aspect-[16/9] md:aspect-auto md:h-[350px] lg:h-[486px]">
           <Image
             src={heroImageUrl}
             alt={title}
             fill
-            className="object-cover"
+            sizes="(max-width: 768px) 100vw, 1348px"
+            className="object-contain md:object-cover"
             priority
           />
-      
-     
         </div>
       </section>
 
